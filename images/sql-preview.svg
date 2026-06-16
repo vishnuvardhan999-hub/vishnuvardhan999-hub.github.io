@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="'Segoe UI',sans-serif">
+  <!-- Background -->
+  <rect width="800" height="450" fill="#1a1a2e"/>
+
+  <!-- Title bar -->
+  <rect width="800" height="48" fill="#16213e"/>
+  <text x="20" y="31" fill="#e94560" font-size="14" font-weight="700" letter-spacing="2">TECH LAYOFFS — SQL DATA CLEANING &amp; EDA</text>
+  <circle cx="740" cy="24" r="7" fill="#e94560" opacity="0.8"/>
+  <circle cx="760" cy="24" r="7" fill="#f5a623" opacity="0.8"/>
+  <circle cx="780" cy="24" r="7" fill="#2ecc71" opacity="0.8"/>
+
+  <!-- Section: Top Companies Bar Chart -->
+  <text x="20" y="80" fill="#8892b0" font-size="11" letter-spacing="1">TOP COMPANIES BY TOTAL LAYOFFS</text>
+
+  <!-- Bars -->
+  <!-- Amazon -->
+  <rect x="20" y="90" width="340" height="28" fill="#e94560" rx="3"/>
+  <text x="30" y="109" fill="#fff" font-size="12" font-weight="600">Amazon</text>
+  <text x="368" y="109" fill="#e94560" font-size="12" font-weight="700">18,150</text>
+
+  <!-- Google -->
+  <rect x="20" y="126" width="290" height="28" fill="#e94560" rx="3" opacity="0.85"/>
+  <text x="30" y="145" fill="#fff" font-size="12" font-weight="600">Google</text>
+  <text x="318" y="145" fill="#e94560" font-size="12" font-weight="700">12,000</text>
+
+  <!-- Meta -->
+  <rect x="20" y="162" width="260" height="28" fill="#e94560" rx="3" opacity="0.75"/>
+  <text x="30" y="181" fill="#fff" font-size="12" font-weight="600">Meta</text>
+  <text x="288" y="181" fill="#e94560" font-size="12" font-weight="700">11,000</text>
+
+  <!-- Salesforce -->
+  <rect x="20" y="198" width="220" height="28" fill="#e94560" rx="3" opacity="0.65"/>
+  <text x="30" y="217" fill="#fff" font-size="12" font-weight="600">Salesforce</text>
+  <text x="248" y="217" fill="#e94560" font-size="12" font-weight="700">8,000</text>
+
+  <!-- Microsoft -->
+  <rect x="20" y="234" width="185" height="28" fill="#e94560" rx="3" opacity="0.55"/>
+  <text x="30" y="253" fill="#fff" font-size="12" font-weight="600">Microsoft</text>
+  <text x="213" y="253" fill="#e94560" font-size="12" font-weight="700">7,000</text>
+
+  <!-- Divider -->
+  <line x1="430" y1="60" x2="430" y2="420" stroke="#2a2a4a" stroke-width="1"/>
+
+  <!-- Rolling Total Line Chart -->
+  <text x="450" y="80" fill="#8892b0" font-size="11" letter-spacing="1">MONTHLY ROLLING TOTAL (CTE + WINDOW FN)</text>
+
+  <!-- Chart area -->
+  <rect x="450" y="90" width="330" height="200" fill="#16213e" rx="4"/>
+
+  <!-- Grid lines -->
+  <line x1="450" y1="140" x2="780" y2="140" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4"/>
+  <line x1="450" y1="190" x2="780" y2="190" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4"/>
+  <line x1="450" y1="240" x2="780" y2="240" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4"/>
+
+  <!-- Rising line -->
+  <polyline points="460,280 490,270 520,265 550,250 575,230 600,210 625,185 650,160 675,130 700,110 730,100 760,95"
+    fill="none" stroke="#e94560" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Area fill -->
+  <polygon points="460,280 490,270 520,265 550,250 575,230 600,210 625,185 650,160 675,130 700,110 730,100 760,95 760,290 460,290"
+    fill="#e94560" opacity="0.12"/>
+
+  <!-- Dots -->
+  <circle cx="460" cy="280" r="4" fill="#e94560"/>
+  <circle cx="550" cy="250" r="4" fill="#e94560"/>
+  <circle cx="650" cy="160" r="4" fill="#e94560"/>
+  <circle cx="760" cy="95"  r="4" fill="#e94560"/>
+
+  <!-- X labels -->
+  <text x="455" y="308" fill="#8892b0" font-size="9">2020</text>
+  <text x="530" y="308" fill="#8892b0" font-size="9">2021</text>
+  <text x="620" y="308" fill="#8892b0" font-size="9">2022</text>
+  <text x="720" y="308" fill="#8892b0" font-size="9">2023</text>
+
+  <!-- SQL snippet panel -->
+  <rect x="450" y="325" width="330" height="90" fill="#0d0d1a" rx="4"/>
+  <text x="462" y="344" fill="#8892b0" font-size="10">SQL SNIPPET</text>
+  <text x="462" y="362" fill="#569cd6" font-size="11">WITH</text>
+  <text x="493" y="362" fill="#9cdcfe" font-size="11">Rolling_Total AS (</text>
+  <text x="462" y="378" fill="#569cd6" font-size="11">  SELECT</text>
+  <text x="513" y="378" fill="#ce9178" font-size="11">SUBSTRING(date,1,7)</text>
+  <text x="462" y="394" fill="#4ec9b0" font-size="11">  SUM</text>
+  <text x="490" y="394" fill="#9cdcfe" font-size="11">(total_laid_off) OVER(ORDER BY month)</text>
+
+  <!-- Stats row -->
+  <rect x="20" y="340" width="120" height="60" fill="#16213e" rx="4"/>
+  <text x="80" y="365" fill="#e94560" font-size="22" font-weight="700" text-anchor="middle">1,000+</text>
+  <text x="80" y="385" fill="#8892b0" font-size="10" text-anchor="middle">ROWS CLEANED</text>
+
+  <rect x="155" y="340" width="120" height="60" fill="#16213e" rx="4"/>
+  <text x="215" y="365" fill="#f5a623" font-size="22" font-weight="700" text-anchor="middle">5</text>
+  <text x="215" y="385" fill="#8892b0" font-size="10" text-anchor="middle">CLEANING STEPS</text>
+
+  <rect x="290" y="340" width="120" height="60" fill="#16213e" rx="4"/>
+  <text x="350" y="365" fill="#2ecc71" font-size="22" font-weight="700" text-anchor="middle">CTEs</text>
+  <text x="350" y="385" fill="#8892b0" font-size="10" text-anchor="middle">WINDOW FUNCTIONS</text>
+
+  <!-- Footer bar -->
+  <rect y="420" width="800" height="30" fill="#16213e"/>
+  <text x="20" y="439" fill="#8892b0" font-size="10">MySQL  •  ROW_NUMBER()  •  DENSE_RANK()  •  Self JOIN  •  STR_TO_DATE()  •  CTE  •  Rolling Total</text>
+</svg>

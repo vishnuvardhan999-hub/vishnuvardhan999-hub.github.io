@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="'Segoe UI',sans-serif">
+  <!-- Background -->
+  <rect width="800" height="450" fill="#f3f2f1"/>
+
+  <!-- Title bar -->
+  <rect width="800" height="48" fill="#201f1e"/>
+  <rect width="4" height="48" fill="#f2c811"/>
+  <text x="24" y="31" fill="#f2c811" font-size="14" font-weight="700" letter-spacing="1">⚡  DATA PROFESSIONAL SURVEY DASHBOARD</text>
+  <text x="660" y="31" fill="#888" font-size="10">Power BI  •  630 Respondents</text>
+
+  <!-- KPI Cards row -->
+  <rect x="10"  y="58" width="115" height="70" fill="#ffffff" rx="4" stroke="#e1dfdd" stroke-width="1"/>
+  <text x="67"  y="85"  fill="#201f1e" font-size="22" font-weight="700" text-anchor="middle">630</text>
+  <text x="67"  y="103" fill="#888" font-size="9" text-anchor="middle">TOTAL TAKERS</text>
+  <text x="67"  y="118" fill="#f2c811" font-size="9" text-anchor="middle">▲ Survey 2022</text>
+
+  <rect x="135" y="58" width="115" height="70" fill="#ffffff" rx="4" stroke="#e1dfdd" stroke-width="1"/>
+  <text x="192" y="85"  fill="#201f1e" font-size="22" font-weight="700" text-anchor="middle">29.9</text>
+  <text x="192" y="103" fill="#888" font-size="9" text-anchor="middle">AVG AGE</text>
+  <text x="192" y="118" fill="#f2c811" font-size="9" text-anchor="middle">years</text>
+
+  <!-- Gauge: Salary Happiness -->
+  <rect x="260" y="58" width="155" height="70" fill="#ffffff" rx="4" stroke="#e1dfdd" stroke-width="1"/>
+  <text x="337" y="74" fill="#888" font-size="9" text-anchor="middle">SALARY HAPPINESS</text>
+  <!-- Gauge arc background -->
+  <path d="M 290 118 A 47 47 0 0 1 384 118" fill="none" stroke="#e1dfdd" stroke-width="12" stroke-linecap="round"/>
+  <!-- Gauge fill 4.27/10 = 42.7% -->
+  <path d="M 290 118 A 47 47 0 0 1 329 76" fill="none" stroke="#e74c3c" stroke-width="12" stroke-linecap="round"/>
+  <text x="337" y="108" fill="#e74c3c" font-size="18" font-weight="700" text-anchor="middle">4.27</text>
+  <text x="337" y="122" fill="#888" font-size="8" text-anchor="middle">out of 10</text>
+
+  <!-- Gauge: WLB Happiness -->
+  <rect x="425" y="58" width="155" height="70" fill="#ffffff" rx="4" stroke="#e1dfdd" stroke-width="1"/>
+  <text x="502" y="74" fill="#888" font-size="9" text-anchor="middle">WORK / LIFE BALANCE</text>
+  <path d="M 455 118 A 47 47 0 0 1 549 118" fill="none" stroke="#e1dfdd" stroke-width="12" stroke-linecap="round"/>
+  <!-- 5.74/10 = 57.4% -->
+  <path d="M 455 118 A 47 47 0 0 1 503 72" fill="none" stroke="#f2c811" stroke-width="12" stroke-linecap="round"/>
+  <text x="502" y="108" fill="#f2c811" font-size="18" font-weight="700" text-anchor="middle">5.74</text>
+  <text x="502" y="122" fill="#888" font-size="8" text-anchor="middle">out of 10</text>
+
+  <!-- Career switcher donut -->
+  <rect x="590" y="58" width="200" height="70" fill="#ffffff" rx="4" stroke="#e1dfdd" stroke-width="1"/>
+  <text x="690" y="74" fill="#888" font-size="9" text-anchor="middle">CAREER SWITCHERS</text>
+  <!-- Donut -->
+  <circle cx="630" cy="103" r="25" fill="none" stroke="#e1dfdd" stroke-width="10"/>
+  <!-- 59% arc -->
+  <circle cx="630" cy="103" r="25" fill="none" stroke="#f2c811" stroke-width="10"
+    stroke-dasharray="92.7 157" stroke-dashoffset="39" transform="rotate(-90 630 103)"/>
+  <text x="630" y="107" fill="#201f1e" font-size="10" font-weight="700" text-anchor="middle">59%</text>
+  <text x="668" y="97"  fill="#f2c811" font-size="9">Yes</text>
+  <text x="668" y="112" fill="#888"   font-size="9">No: 41%</text>
+
+  <!-- Treemap: Country -->
+  <rect x="10" y="138" width="265" height="165" fill="#ffffff" rx="4" stroke="#e1dfdd" stroke-width="1"/>
+  <text x="22" y="158" fill="#201f1e" font-size="11" font-weight="700">SURVEY TAKERS BY COUNTRY</text>
+  <!-- US - largest -->
+  <rect x="15"  y="165" width="165" height="90" fill="#f2c811" rx="2"/>
+  <text x="97"  y="212" fill="#201f1e" font-size="13" font-weight="700" text-anchor="middle">United States</text>
+  <text x="97"  y="228" fill="#201f1e" font-size="11" text-anchor="middle">261</text>
+  <!-- India -->
+  <rect x="185" y="165" width="85"  height="90" fill="#e8b800" rx="2"/>
+  <text x="227" y="200" fill="#201f1e" font-size="10" font-weight="700" text-anchor="middle">India</text>
+  <text x="227" y="215" fill="#201f1e" font-size="10" text-anchor="middle">73</text>
+  <!-- UK -->
+  <rect x="15"  y="260" width="90"  height="40" fill="#d4a800" rx="2"/>
+  <text x="60"  y="284" fill="#201f1e" font-size="9" text-anchor="middle">UK  40</text>
+  <!-- Canada -->
+  <rect x="110" y="260" width="75"  height="40" fill="#c09600" rx="2"/>
+  <text x="147" y="284" fill="#fff"  font-size="9" text-anchor="middle">Canada 32</text>
+  <!-- Other -->
+  <rect x="190" y="260" width="80"  height="40" fill="#a07800" rx="2"/>
+  <text x="230" y="284" fill="#fff"  font-size="9" text-anchor="middle">Other  35</text>
+
+  <!-- Fav Language bar chart -->
+  <rect x="285" y="138" width="310" height="165" fill="#ffffff" rx="4" stroke="#e1dfdd" stroke-width="1"/>
+  <text x="297" y="158" fill="#201f1e" font-size="11" font-weight="700">FAVORITE PROGRAMMING LANGUAGE</text>
+
+  <!-- Python -->
+  <text x="297" y="178" fill="#888" font-size="9">Python</text>
+  <rect x="350" y="165" width="210" height="16" fill="#f2c811" rx="2"/>
+  <text x="565" y="178" fill="#f2c811" font-size="9" font-weight="700">420 (66.7%)</text>
+
+  <!-- R -->
+  <text x="297" y="202" fill="#888" font-size="9">R</text>
+  <rect x="350" y="189" width="51"  height="16" fill="#e8b800" rx="2"/>
+  <text x="406" y="202" fill="#888" font-size="9">101</text>
+
+  <!-- SQL -->
+  <text x="297" y="226" fill="#888" font-size="9">SQL</text>
+  <rect x="350" y="213" width="20"  height="16" fill="#d4a800" rx="2"/>
+  <text x="375" y="226" fill="#888" font-size="9">38</text>
+
+  <!-- C++ -->
+  <text x="297" y="250" fill="#888" font-size="9">C/C++</text>
+  <rect x="350" y="237" width="7"   height="16" fill="#c09600" rx="2"/>
+  <text x="362" y="250" fill="#888" font-size="9">7</text>
+
+  <!-- JS -->
+  <text x="297" y="274" fill="#888" font-size="9">JavaScript</text>
+  <rect x="350" y="261" width="6"   height="16" fill="#a07800" rx="2"/>
+  <text x="361" y="274" fill="#888" font-size="9">6</text>
+
+  <!-- Job factor bar -->
+  <rect x="605" y="138" width="185" height="165" fill="#ffffff" rx="4" stroke="#e1dfdd" stroke-width="1"/>
+  <text x="617" y="158" fill="#201f1e" font-size="10" font-weight="700">TOP JOB PRIORITIES</text>
+
+  <text x="617" y="178" fill="#888" font-size="9">Better Salary</text>
+  <rect x="617" y="182" width="148" height="14" fill="#f2c811" rx="2"/>
+  <text x="769" y="193" fill="#f2c811" font-size="8" font-weight="700">297</text>
+
+  <text x="617" y="208" fill="#888" font-size="9">Remote Work</text>
+  <rect x="617" y="212" width="64"  height="14" fill="#e8b800" rx="2"/>
+  <text x="685" y="223" fill="#888" font-size="8">127</text>
+
+  <text x="617" y="238" fill="#888" font-size="9">Work/Life Bal.</text>
+  <rect x="617" y="242" width="59"  height="14" fill="#d4a800" rx="2"/>
+  <text x="680" y="253" fill="#888" font-size="8">117</text>
+
+  <text x="617" y="268" fill="#888" font-size="9">Good Culture</text>
+  <rect x="617" y="272" width="27"  height="14" fill="#c09600" rx="2"/>
+  <text x="648" y="283" fill="#888" font-size="8">54</text>
+
+  <!-- Difficulty donut -->
+  <rect x="10" y="313" width="280" height="100" fill="#ffffff" rx="4" stroke="#e1dfdd" stroke-width="1"/>
+  <text x="22" y="333" fill="#201f1e" font-size="11" font-weight="700">DIFFICULTY BREAKING INTO DATA</text>
+  <!-- Donut chart -->
+  <circle cx="80" cy="375" r="35" fill="none" stroke="#e1dfdd" stroke-width="14"/>
+  <!-- Neither: 42.7% -->
+  <circle cx="80" cy="375" r="35" fill="none" stroke="#f2c811" stroke-width="14"
+    stroke-dasharray="93.7 219.9" stroke-dashoffset="55" transform="rotate(-90 80 375)"/>
+  <!-- Difficult: 24.8% -->
+  <circle cx="80" cy="375" r="35" fill="none" stroke="#e74c3c" stroke-width="14"
+    stroke-dasharray="54.5 219.9" stroke-dashoffset="-38.7" transform="rotate(-90 80 375)"/>
+  <!-- Easy: 21.3% -->
+  <circle cx="80" cy="375" r="35" fill="none" stroke="#2ecc71" stroke-width="14"
+    stroke-dasharray="46.8 219.9" stroke-dashoffset="-93.2" transform="rotate(-90 80 375)"/>
+
+  <text x="145" y="355" fill="#f2c811" font-size="10">■ Neither  42.7%</text>
+  <text x="145" y="372" fill="#e74c3c" font-size="10">■ Difficult  24.8%</text>
+  <text x="145" y="389" fill="#2ecc71" font-size="10">■ Easy  21.3%</text>
+  <text x="145" y="406" fill="#888"    font-size="10">■ V.Difficult  7.0%</text>
+
+  <!-- Salary by role -->
+  <rect x="300" y="313" width="490" height="100" fill="#ffffff" rx="4" stroke="#e1dfdd" stroke-width="1"/>
+  <text x="312" y="333" fill="#201f1e" font-size="11" font-weight="700">AVG SALARY BY JOB TITLE</text>
+
+  <text x="312" y="355" fill="#888" font-size="9">Data Scientist</text>
+  <rect x="420" y="342" width="330" height="14" fill="#f2c811" rx="2"/>
+  <text x="754" y="354" fill="#f2c811" font-size="9" font-weight="700">Highest</text>
+
+  <text x="312" y="377" fill="#888" font-size="9">Data Engineer</text>
+  <rect x="420" y="364" width="270" height="14" fill="#e8b800" rx="2"/>
+
+  <text x="312" y="399" fill="#888" font-size="9">Data Analyst</text>
+  <rect x="420" y="386" width="195" height="14" fill="#d4a800" rx="2"/>
+  <text x="619" y="398" fill="#888" font-size="9">381 respondents</text>
+
+  <!-- Footer -->
+  <rect y="420" width="800" height="30" fill="#201f1e"/>
+  <text x="20" y="439" fill="#888" font-size="10">Power BI  •  Power Query  •  DAX  •  Treemap  •  Gauge Charts  •  Donut Charts  •  KPI Cards  •  Bar Charts</text>
+</svg>

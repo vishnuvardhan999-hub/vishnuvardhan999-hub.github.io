@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="'Segoe UI',sans-serif">
+  <!-- Background -->
+  <rect width="800" height="450" fill="#0d1117"/>
+
+  <!-- Title bar -->
+  <rect width="800" height="48" fill="#161b22"/>
+  <text x="20" y="20" fill="#8b949e" font-size="11">vishnuvardhan999-hub /</text>
+  <text x="165" y="20" fill="#58a6ff" font-size="11" font-weight="700">Data-Analysis-Portfolio</text>
+  <text x="20" y="38" fill="#8b949e" font-size="10">🌐 Public  •  main  •  ⭐ Portfolio Repository</text>
+
+  <!-- Folder structure -->
+  <rect x="10" y="58" width="220" height="330" fill="#161b22" rx="4" stroke="#30363d" stroke-width="1"/>
+  <text x="22" y="78" fill="#8b949e" font-size="10" font-weight="700">📁 REPOSITORY STRUCTURE</text>
+
+  <!-- folders -->
+  <text x="22"  y="100" fill="#58a6ff" font-size="12">📁 sql/</text>
+  <text x="38"  y="118" fill="#8b949e" font-size="10">📄 layoffs.csv</text>
+  <text x="38"  y="134" fill="#8b949e" font-size="10">📄 SQl Complete...</text>
+  <text x="38"  y="150" fill="#f0883e" font-size="10">📘 README.md</text>
+
+  <text x="22"  y="172" fill="#58a6ff" font-size="12">📁 excel/</text>
+  <text x="38"  y="190" fill="#8b949e" font-size="10">📊 Excel Project Dataset.xlsx</text>
+  <text x="38"  y="206" fill="#8b949e" font-size="10">📊 ...dashboard_project.xlsx</text>
+  <text x="38"  y="222" fill="#f0883e" font-size="10">📘 README.md</text>
+
+  <text x="22"  y="244" fill="#58a6ff" font-size="12">📁 tableau/</text>
+  <text x="38"  y="262" fill="#8b949e" font-size="10">📊 Tableau Full Project.xlsx</text>
+  <text x="38"  y="278" fill="#8b949e" font-size="10">📦 AirBNB...Project.twbx</text>
+  <text x="38"  y="294" fill="#f0883e" font-size="10">📘 README.md</text>
+
+  <text x="22"  y="316" fill="#58a6ff" font-size="12">📁 power bi/</text>
+  <text x="38"  y="334" fill="#8b949e" font-size="10">📊 Power BI - Final Project.xlsx</text>
+  <text x="38"  y="350" fill="#8b949e" font-size="10">📊 power bi dashboard.pbix</text>
+  <text x="38"  y="366" fill="#f0883e" font-size="10">📘 README.md</text>
+
+  <text x="22"  y="385" fill="#f0883e" font-size="12">📘 README.md</text>
+
+  <!-- Commit history panel -->
+  <rect x="240" y="58" width="550" height="175" fill="#161b22" rx="4" stroke="#30363d" stroke-width="1"/>
+  <text x="252" y="78" fill="#8b949e" font-size="10" font-weight="700">COMMIT HISTORY</text>
+
+  <!-- Commits -->
+  <circle cx="265" cy="100" r="6" fill="#3fb950" stroke="#0d1117" stroke-width="2"/>
+  <line x1="265" y1="106" x2="265" y2="122" stroke="#30363d" stroke-width="1"/>
+  <text x="280" y="98"  fill="#c9d1d9" font-size="11">Add Power BI project: Data Professional Survey dashboard</text>
+  <text x="280" y="112" fill="#8b949e" font-size="9">main  •  2 days ago</text>
+
+  <circle cx="265" cy="130" r="6" fill="#3fb950" stroke="#0d1117" stroke-width="2"/>
+  <line x1="265" y1="136" x2="265" y2="152" stroke="#30363d" stroke-width="1"/>
+  <text x="280" y="128" fill="#c9d1d9" font-size="11">Add Tableau project: Seattle AirBnB dashboard</text>
+  <text x="280" y="142" fill="#8b949e" font-size="9">main  •  3 days ago</text>
+
+  <circle cx="265" cy="160" r="6" fill="#3fb950" stroke="#0d1117" stroke-width="2"/>
+  <line x1="265" y1="166" x2="265" y2="182" stroke="#30363d" stroke-width="1"/>
+  <text x="280" y="158" fill="#c9d1d9" font-size="11">Add Excel project: Bike Buyers Sales Dashboard</text>
+  <text x="280" y="172" fill="#8b949e" font-size="9">main  •  4 days ago</text>
+
+  <circle cx="265" cy="190" r="6" fill="#3fb950" stroke="#0d1117" stroke-width="2"/>
+  <text x="280" y="188" fill="#c9d1d9" font-size="11">Initial commit: SQL data cleaning + layoffs dataset</text>
+  <text x="280" y="202" fill="#8b949e" font-size="9">main  •  5 days ago</text>
+
+  <!-- README preview -->
+  <rect x="240" y="243" width="550" height="145" fill="#161b22" rx="4" stroke="#30363d" stroke-width="1"/>
+  <text x="252" y="263" fill="#8b949e" font-size="10" font-weight="700">📘 README.md</text>
+  <line x1="240" y1="270" x2="790" y2="270" stroke="#30363d" stroke-width="1"/>
+
+  <text x="252" y="290" fill="#e6edf3" font-size="14" font-weight="700"># Data Analysis Portfolio</text>
+  <text x="252" y="310" fill="#8b949e" font-size="10">Welcome to my Data Analysis Portfolio! This repository showcases projects</text>
+  <text x="252" y="324" fill="#8b949e" font-size="10">across SQL, Excel, Tableau, and Power BI.</text>
+
+  <rect x="252" y="334" width="8" height="8" fill="#58a6ff"/>
+  <text x="265" y="342" fill="#58a6ff" font-size="10">SQL Projects  →  sql/</text>
+  <rect x="252" y="348" width="8" height="8" fill="#3fb950"/>
+  <text x="265" y="356" fill="#3fb950" font-size="10">Excel Projects  →  excel/</text>
+  <rect x="252" y="362" width="8" height="8" fill="#f0883e"/>
+  <text x="265" y="370" fill="#f0883e" font-size="10">Tableau Projects  →  tableau/</text>
+  <rect x="252" y="376" width="8" height="8" fill="#f2c811"/>
+  <text x="265" y="384" fill="#f2c811" font-size="10">Power BI Projects  →  power bi/</text>
+
+  <!-- Footer -->
+  <rect y="420" width="800" height="30" fill="#161b22"/>
+  <text x="20" y="439" fill="#8b949e" font-size="10">github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio  •  SQL  •  Excel  •  Tableau  •  Power BI</text>
+</svg>

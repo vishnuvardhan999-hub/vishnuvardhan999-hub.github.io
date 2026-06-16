@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="'Segoe UI',sans-serif">
+  <!-- Background -->
+  <rect width="800" height="450" fill="#1b1b2f"/>
+
+  <!-- Title bar -->
+  <rect width="800" height="48" fill="#162447"/>
+  <text x="20" y="31" fill="#e43f5a" font-size="14" font-weight="700" letter-spacing="1">SEATTLE AIRBNB MARKET DASHBOARD</text>
+  <text x="660" y="31" fill="#8892b0" font-size="10">Tableau  •  3,818 Listings</text>
+
+  <!-- MAP panel (left) -->
+  <rect x="10" y="58" width="360" height="250" fill="#162447" rx="4"/>
+  <text x="20" y="78" fill="#8892b0" font-size="11" letter-spacing="1">AVG PRICE BY ZIPCODE</text>
+
+  <!-- Fake Seattle map grid with colored zip regions -->
+  <!-- Water background -->
+  <rect x="10" y="82" width="360" height="226" fill="#1a3a5c" rx="0"/>
+
+  <!-- Zip regions as colored blocks representing neighborhoods -->
+  <rect x="80"  y="100" width="70" height="50" fill="#e43f5a" rx="3" opacity="0.9"/>
+  <text x="115" y="128" fill="#fff" font-size="9" text-anchor="middle" font-weight="700">98101</text>
+  <text x="115" y="140" fill="#fff" font-size="8" text-anchor="middle">$166</text>
+
+  <rect x="155" y="95"  width="65" height="50" fill="#e43f5a" rx="3" opacity="0.85"/>
+  <text x="187" y="123" fill="#fff" font-size="9" text-anchor="middle" font-weight="700">98121</text>
+  <text x="187" y="135" fill="#fff" font-size="8" text-anchor="middle">$153</text>
+
+  <rect x="225" y="105" width="65" height="50" fill="#f5803a" rx="3" opacity="0.85"/>
+  <text x="257" y="133" fill="#fff" font-size="9" text-anchor="middle" font-weight="700">98109</text>
+  <text x="257" y="145" fill="#fff" font-size="8" text-anchor="middle">$150</text>
+
+  <rect x="80"  y="158" width="65" height="50" fill="#f5803a" rx="3" opacity="0.8"/>
+  <text x="112" y="186" fill="#fff" font-size="9" text-anchor="middle" font-weight="700">98119</text>
+  <text x="112" y="198" fill="#fff" font-size="8" text-anchor="middle">$166</text>
+
+  <rect x="155" y="153" width="65" height="50" fill="#f5a623" rx="3" opacity="0.8"/>
+  <text x="187" y="181" fill="#fff" font-size="9" text-anchor="middle" font-weight="700">98116</text>
+  <text x="187" y="193" fill="#fff" font-size="8" text-anchor="middle">$145</text>
+
+  <rect x="225" y="163" width="65" height="50" fill="#f5a623" rx="3" opacity="0.75"/>
+  <text x="257" y="191" fill="#fff" font-size="9" text-anchor="middle" font-weight="700">98136</text>
+  <text x="257" y="203" fill="#fff" font-size="8" text-anchor="middle">$137</text>
+
+  <rect x="80"  y="216" width="65" height="45" fill="#ffd166" rx="3" opacity="0.7"/>
+  <text x="112" y="242" fill="#333" font-size="9" text-anchor="middle" font-weight="700">98103</text>
+  <text x="112" y="254" fill="#333" font-size="8" text-anchor="middle">$128</text>
+
+  <rect x="155" y="211" width="65" height="45" fill="#ffd166" rx="3" opacity="0.65"/>
+  <text x="187" y="237" fill="#333" font-size="9" text-anchor="middle" font-weight="700">98115</text>
+  <text x="187" y="249" fill="#333" font-size="8" text-anchor="middle">$118</text>
+
+  <rect x="295" y="170" width="60" height="45" fill="#ffd166" rx="3" opacity="0.6"/>
+  <text x="325" y="196" fill="#333" font-size="9" text-anchor="middle" font-weight="700">98144</text>
+  <text x="325" y="208" fill="#333" font-size="8" text-anchor="middle">$112</text>
+
+  <!-- Color legend -->
+  <text x="20" y="295" fill="#8892b0" font-size="9">LOW $95</text>
+  <rect x="70" y="285" width="230" height="10" rx="3" fill="url(#mapGrad)"/>
+  <text x="310" y="295" fill="#8892b0" font-size="9">HIGH $206</text>
+  <defs>
+    <linearGradient id="mapGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffd166"/>
+      <stop offset="100%" stop-color="#e43f5a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Chart: Price by Bedroom -->
+  <rect x="380" y="58" width="410" height="250" fill="#162447" rx="4"/>
+  <text x="392" y="78" fill="#8892b0" font-size="11" letter-spacing="1">AVG PRICE BY BEDROOMS</text>
+
+  <!-- Bars -->
+  <text x="392" y="100" fill="#8892b0" font-size="9">Studio</text>
+  <rect x="450" y="88" width="103" height="15" fill="#e43f5a" rx="2"/>
+  <text x="558" y="100" fill="#e43f5a" font-size="9" font-weight="700">$103</text>
+
+  <text x="392" y="122" fill="#8892b0" font-size="9">1 Bed</text>
+  <rect x="450" y="110" width="95" height="15" fill="#e43f5a" rx="2" opacity="0.85"/>
+  <text x="550" y="122" fill="#e43f5a" font-size="9" font-weight="700">$95  (2,417)</text>
+
+  <text x="392" y="144" fill="#8892b0" font-size="9">2 Bed</text>
+  <rect x="450" y="132" width="174" height="15" fill="#f5803a" rx="2"/>
+  <text x="629" y="144" fill="#f5803a" font-size="9" font-weight="700">$174</text>
+
+  <text x="392" y="166" fill="#8892b0" font-size="9">3 Bed</text>
+  <rect x="450" y="154" width="249" height="15" fill="#f5a623" rx="2"/>
+  <text x="704" y="166" fill="#f5a623" font-size="9" font-weight="700">$249</text>
+
+  <text x="392" y="188" fill="#8892b0" font-size="9">4 Bed</text>
+  <rect x="450" y="176" width="313" height="15" fill="#ffd166" rx="2"/>
+  <text x="768" y="188" fill="#ffd166" font-size="9" font-weight="700">$313</text>
+
+  <text x="392" y="210" fill="#8892b0" font-size="9">5 Bed</text>
+  <rect x="450" y="198" width="360" height="15" fill="#06d6a0" rx="2"/>
+  <text x="815" y="210" fill="#06d6a0" font-size="9" font-weight="700">$441</text>
+
+  <!-- Revenue by Week Line -->
+  <text x="392" y="240" fill="#8892b0" font-size="11" letter-spacing="1">REVENUE BY WEEK (CALENDAR DATA)</text>
+  <rect x="390" y="248" width="395" height="55" fill="#1a1a2f" rx="3"/>
+  <!-- Line -->
+  <polyline points="400,290 425,285 445,275 465,270 485,260 505,250 525,245 545,248 565,252 585,248 605,242 625,238 630,244 650,248 670,258 690,252 710,248 730,253 760,258 775,265"
+    fill="none" stroke="#e43f5a" stroke-width="2"/>
+  <polygon points="400,295 425,290 445,280 465,275 485,265 505,255 525,250 545,253 565,257 585,253 605,247 625,243 630,249 650,253 670,263 690,257 710,253 730,258 760,263 775,270 775,298 400,298"
+    fill="#e43f5a" opacity="0.1"/>
+  <text x="400" y="299" fill="#8892b0" font-size="8">Jan</text>
+  <text x="470" y="299" fill="#8892b0" font-size="8">Mar</text>
+  <text x="545" y="299" fill="#8892b0" font-size="8">Jun</text>
+  <text x="630" y="299" fill="#8892b0" font-size="8">Sep</text>
+  <text x="730" y="299" fill="#8892b0" font-size="8">Dec</text>
+
+  <!-- KPI row -->
+  <rect x="10"  y="318" width="185" height="65" fill="#162447" rx="4"/>
+  <text x="102" y="345" fill="#e43f5a" font-size="26" font-weight="700" text-anchor="middle">3,818</text>
+  <text x="102" y="365" fill="#8892b0" font-size="10" text-anchor="middle">TOTAL LISTINGS</text>
+
+  <rect x="205" y="318" width="185" height="65" fill="#162447" rx="4"/>
+  <text x="297" y="345" fill="#f5a623" font-size="26" font-weight="700" text-anchor="middle">$127</text>
+  <text x="297" y="365" fill="#8892b0" font-size="10" text-anchor="middle">AVG NIGHTLY PRICE</text>
+
+  <rect x="400" y="318" width="185" height="65" fill="#162447" rx="4"/>
+  <text x="492" y="345" fill="#06d6a0" font-size="26" font-weight="700" text-anchor="middle">66.5%</text>
+  <text x="492" y="365" fill="#8892b0" font-size="10" text-anchor="middle">ENTIRE HOME/APT</text>
+
+  <rect x="595" y="318" width="195" height="65" fill="#162447" rx="4"/>
+  <text x="692" y="345" fill="#ffd166" font-size="26" font-weight="700" text-anchor="middle">Broadway</text>
+  <text x="692" y="365" fill="#8892b0" font-size="10" text-anchor="middle">TOP NEIGHBOURHOOD (397)</text>
+
+  <!-- Footer -->
+  <rect y="420" width="800" height="30" fill="#162447"/>
+  <text x="20" y="439" fill="#8892b0" font-size="10">Tableau  •  Map Viz  •  LOD Expressions  •  Calculated Fields  •  Data Blending  •  Filters  •  Dashboard</text>
+</svg>
