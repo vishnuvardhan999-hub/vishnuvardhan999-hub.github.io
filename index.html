@@ -1,117 +1,567 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Vishnu Vardhan | Portfolio</title>
-  <link rel="stylesheet" href="style.css"/>
-  <style>
-    /* HOME-SPECIFIC */
-    .hero {
-      min-height: calc(100vh - 70px);
-      display: flex; align-items: center;
-      padding: 4rem clamp(1.5rem,5vw,4rem);
-      position: relative;
-    }
-    .hero-content { max-width: 780px; }
-    .hero-greeting {
-      color: var(--accent); font-size: 1rem; font-weight: 600;
-      letter-spacing: 0.12em; margin-bottom: 1rem; display: block;
-    }
-    .hero h1 { margin-bottom: 0.5rem; }
-    .hero h1 .name { color: var(--white); }
-    .hero h1 .role {
-      background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-sub {
-      font-size: 1.15rem; color: var(--muted);
-      max-width: 580px; margin: 1.5rem 0 2.5rem;
-    }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .hero-stats {
-      display: flex; gap: 2.5rem; margin-top: 4rem;
-      padding-top: 2rem; border-top: 1px solid var(--border);
-      flex-wrap: wrap;
-    }
-    .hero-stat .num { font-size: 2rem; font-weight: 800; color: var(--white); display: block; }
-    .hero-stat .lbl { font-size: 0.78rem; color: var(--muted); }
-    /* Animated cursor */
-    .cursor { animation: blink 1s step-end infinite; color: var(--accent); }
-    @keyframes blink { 50% { opacity: 0; } }
-    /* Floating orbs */
-    .orb {
-      position: fixed; border-radius: 50%; filter: blur(80px);
-      pointer-events: none; z-index: -1; animation: float 8s ease-in-out infinite;
-    }
-    .orb1 { width: 400px; height: 400px; background: rgba(100,255,218,0.06); top: -100px; right: -100px; }
-    .orb2 { width: 350px; height: 350px; background: rgba(124,58,237,0.08); bottom: 100px; left: -100px; animation-delay: -3s; }
-    .orb3 { width: 250px; height: 250px; background: rgba(244,114,182,0.05); top: 50%; right: 20%; animation-delay: -6s; }
-    @keyframes float {
-      0%,100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-30px) scale(1.05); }
-    }
-    /* Quick links row */
-    .quick-nav {
-      display: flex; flex-wrap: wrap; gap: 0.75rem;
-      margin-top: 1.5rem;
-    }
-    .quick-nav a {
-      display: flex; align-items: center; gap: 0.4rem;
-      font-size: 0.82rem; color: var(--muted);
-      padding: 0.45rem 1rem; border-radius: 50px;
-      border: 1px solid var(--border);
-      transition: var(--transition);
-    }
-    .quick-nav a:hover { color: var(--accent); border-color: rgba(100,255,218,0.3); background: rgba(100,255,218,0.05); }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Balapu Vishnu Vardhan | Portfolio</title>
+<style>
+/* ══════════════════════════════════════
+   RESET & VARIABLES
+══════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0f;--bg2:#0d0d18;--bg3:#12121f;
+  --glass:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08);
+  --accent:#64ffda;--accent2:#7c3aed;--accent3:#f472b6;
+  --text:#ccd6f6;--muted:#8892b0;--white:#e6f1ff;
+  --nav-h:68px;--r:12px;
+  --tr:all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;
+  line-height:1.7;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;z-index:-2;
+  background-image:linear-gradient(rgba(100,255,218,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(100,255,218,0.025) 1px,transparent 1px);
+  background-size:60px 60px}
+body::after{content:'';position:fixed;inset:0;z-index:-1;
+  background:radial-gradient(ellipse at 15% 40%,rgba(124,58,237,0.1) 0%,transparent 55%),
+             radial-gradient(ellipse at 85% 15%,rgba(100,255,218,0.07) 0%,transparent 50%),
+             radial-gradient(ellipse at 60% 85%,rgba(244,114,182,0.06) 0%,transparent 50%)}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--accent2);border-radius:3px}
+h1,h2,h3,h4{color:var(--white);font-weight:700;line-height:1.25}
+h1{font-size:clamp(2.4rem,5.5vw,4.2rem);letter-spacing:-0.02em}
+h2{font-size:clamp(1.7rem,3.5vw,2.6rem)}
+h3{font-size:1.2rem}
+p{color:var(--muted);margin-bottom:1rem}
+a{color:var(--accent);text-decoration:none;transition:var(--tr)}
+a:hover{color:var(--white)}
+
+/* ══ NAVBAR ══ */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:1000;
+  background:rgba(10,10,15,0.88);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;padding:0 clamp(1rem,4vw,3.5rem);gap:1rem}
+.logo{font-size:1.25rem;font-weight:800;color:var(--white);margin-right:auto;white-space:nowrap;letter-spacing:-0.02em}
+.logo span{color:var(--accent)}
+nav ul{list-style:none;display:flex;gap:2px;align-items:center;flex-wrap:wrap}
+nav ul li a{color:var(--muted);font-size:0.85rem;font-weight:500;
+  padding:0.45rem 0.85rem;border-radius:6px;transition:var(--tr);display:block}
+nav ul li a:hover,nav ul li a.active{color:var(--accent);background:rgba(100,255,218,0.08)}
+nav ul li a.active{position:relative}
+nav ul li a.active::after{content:'';position:absolute;bottom:2px;left:50%;
+  transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--accent)}
+.hire-btn{border:1px solid var(--accent);color:var(--accent);
+  padding:0.4rem 1rem;border-radius:6px;font-size:0.82rem;font-weight:600;
+  transition:var(--tr);white-space:nowrap;flex-shrink:0}
+.hire-btn:hover{background:rgba(100,255,218,0.1);color:var(--accent)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;flex-shrink:0}
+.burger span{display:block;width:22px;height:2px;background:var(--muted);border-radius:2px;transition:var(--tr)}
+
+/* ══ SPA SECTIONS ══ */
+.page-section{display:none;min-height:calc(100vh - var(--nav-h));padding-top:var(--nav-h)}
+.page-section.active{display:block;animation:fadeUp 0.45s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+/* ══ LAYOUT ══ */
+.container{max-width:1080px;margin:0 auto;padding:0 clamp(1.2rem,4vw,2.5rem)}
+.section{padding:5rem 0}
+.section-tag{display:block;color:var(--accent);font-size:0.75rem;font-weight:700;
+  letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.6rem}
+.section-line{width:55px;height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  border-radius:2px;margin:0.75rem 0 2.5rem}
+
+/* ══ CARDS ══ */
+.card{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);
+  padding:1.6rem;backdrop-filter:blur(10px);transition:var(--tr);position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;inset:0;border-radius:var(--r);
+  background:linear-gradient(135deg,rgba(100,255,218,0.04),transparent);
+  opacity:0;transition:var(--tr)}
+.card:hover{border-color:rgba(100,255,218,0.22);transform:translateY(-4px);
+  box-shadow:0 18px 38px rgba(0,0,0,0.35)}
+.card:hover::before{opacity:1}
+
+/* ══ GRIDS ══ */
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
+
+/* ══ TAGS ══ */
+.tags{display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:0.8rem}
+.tag{font-size:0.7rem;font-weight:600;letter-spacing:0.05em;padding:0.22rem 0.7rem;
+  border-radius:50px;background:rgba(100,255,218,0.08);color:var(--accent);
+  border:1px solid rgba(100,255,218,0.18)}
+.tag.p{background:rgba(124,58,237,0.1);color:#a78bfa;border-color:rgba(124,58,237,0.28)}
+.tag.k{background:rgba(244,114,182,0.1);color:var(--accent3);border-color:rgba(244,114,182,0.22)}
+.tag.o{background:rgba(251,146,60,0.1);color:#fb923c;border-color:rgba(251,146,60,0.22)}
+.tag.b{background:rgba(96,165,250,0.1);color:#60a5fa;border-color:rgba(96,165,250,0.22)}
+
+/* ══ BUTTONS ══ */
+.btn{display:inline-flex;align-items:center;gap:0.45rem;padding:0.7rem 1.6rem;
+  border-radius:8px;font-size:0.88rem;font-weight:600;cursor:pointer;
+  transition:var(--tr);border:none;font-family:inherit}
+.btn-p{background:var(--accent);color:var(--bg)}
+.btn-p:hover{background:#4fd1c5;color:var(--bg);transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(100,255,218,0.25)}
+.btn-o{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.btn-o:hover{background:rgba(100,255,218,0.08);transform:translateY(-2px)}
+
+/* ══ STAT BOX ══ */
+.sbox{text-align:center;padding:1.4rem;border:1px solid var(--border);
+  border-radius:var(--r);background:var(--glass)}
+.sbox .n{font-size:2rem;font-weight:800;color:var(--accent);display:block}
+.sbox .l{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em}
+
+/* ══ TIMELINE ══ */
+.tl{position:relative;padding-left:1.8rem}
+.tl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;
+  background:linear-gradient(to bottom,var(--accent),var(--accent2),transparent)}
+.tl-i{position:relative;margin-bottom:2.2rem}
+.tl-i::before{content:'';position:absolute;left:-2.3rem;top:0.4rem;
+  width:10px;height:10px;border-radius:50%;background:var(--accent);
+  border:2px solid var(--bg);box-shadow:0 0 8px var(--accent)}
+.tl-date{font-size:0.76rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.06em;margin-bottom:0.3rem;display:block}
+.tl-i h4{color:var(--white);margin-bottom:0.2rem}
+.tl-i p{font-size:0.88rem;margin:0}
+
+/* ══ SKILL PILLS ══ */
+.sg h4{color:var(--accent);font-size:0.75rem;letter-spacing:0.14em;
+  text-transform:uppercase;margin-bottom:0.9rem}
+.pills{display:flex;flex-wrap:wrap;gap:0.55rem}
+.pill{padding:0.38rem 0.95rem;border-radius:50px;font-size:0.82rem;
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);
+  color:var(--text);transition:var(--tr)}
+.pill:hover{border-color:var(--accent);color:var(--accent);background:rgba(100,255,218,0.06)}
+
+/* ══ PROJECT CARD ══ */
+.pcard{background:rgba(13,13,24,0.85);border:1px solid var(--border);
+  border-radius:var(--r);overflow:hidden;transition:var(--tr);
+  display:flex;flex-direction:column}
+.pcard:hover{border-color:rgba(100,255,218,0.28);transform:translateY(-5px);
+  box-shadow:0 22px 44px rgba(0,0,0,0.4)}
+.pimg{aspect-ratio:16/9;overflow:hidden;background:var(--bg3)}
+.pimg img{width:100%;height:100%;object-fit:cover;display:block}
+.pbody{padding:1.4rem;flex:1;display:flex;flex-direction:column}
+.pnum{font-size:0.72rem;color:var(--accent);font-weight:700;letter-spacing:0.1em;margin-bottom:0.4rem}
+.pbody h3{font-size:1.08rem;margin-bottom:0.4rem}
+.pbody p{font-size:0.86rem;flex:1}
+.plinks{display:flex;gap:1rem;margin-top:1.1rem}
+.plinks a{font-size:0.8rem;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:0.3rem}
+.plinks a:hover{color:var(--accent)}
+
+/* ══ CERT CARD ══ */
+.ccard{display:flex;align-items:flex-start;gap:1rem;padding:1.2rem;
+  background:var(--glass);border:1px solid var(--border);border-radius:var(--r);transition:var(--tr)}
+.ccard:hover{border-color:rgba(100,255,218,0.22)}
+.ccard .ci{font-size:1.7rem;flex-shrink:0;line-height:1}
+.ccard h4{font-size:0.93rem;margin-bottom:0.15rem}
+.ccard p{font-size:0.78rem;margin:0}
+
+/* ══ FORM ══ */
+.fg{margin-bottom:1.1rem}
+.fg label{display:block;font-size:0.8rem;color:var(--muted);margin-bottom:0.35rem;letter-spacing:0.04em}
+.fg input,.fg textarea,.fg select{width:100%;padding:0.7rem 0.95rem;
+  background:rgba(255,255,255,0.04);border:1px solid var(--border);
+  border-radius:8px;color:var(--white);font-size:0.88rem;font-family:inherit;
+  transition:var(--tr);outline:none}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--accent);background:rgba(100,255,218,0.04)}
+.fg textarea{resize:vertical;min-height:120px}
+.fg select option{background:#0d0d18}
+
+/* ══ ADD PANEL ══ */
+.add-panel{background:rgba(100,255,218,0.03);border:1px dashed rgba(100,255,218,0.25);
+  border-radius:var(--r);padding:1.8rem;margin-top:1.5rem;display:none}
+.add-panel h3{color:var(--accent);margin-bottom:1.2rem}
+.ok{color:#4ade80;font-size:0.83rem;margin-top:0.6rem;display:none}
+
+/* ══ CONTACT ══ */
+.contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:3rem;align-items:start}
+.cinfo-block{margin-bottom:1.8rem;padding-bottom:1.8rem;border-bottom:1px solid var(--border)}
+.cinfo-block:last-child{border-bottom:none}
+.cinfo-block h4{color:var(--accent);font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem}
+.cinfo-block p,.cinfo-block a{font-size:0.92rem;color:var(--text);display:block;margin-bottom:0.2rem}
+.cinfo-block a:hover{color:var(--accent)}
+.soc-link{display:flex;align-items:center;gap:0.7rem;padding:0.65rem 0.9rem;
+  background:var(--glass);border:1px solid var(--border);border-radius:8px;
+  color:var(--text);font-size:0.86rem;margin-bottom:0.6rem;transition:var(--tr)}
+.soc-link:hover{border-color:rgba(100,255,218,0.28);color:var(--accent)}
+
+/* ══ HOME HERO ══ */
+.hero{min-height:calc(100vh - var(--nav-h));display:flex;align-items:center;
+  padding:4rem clamp(1.2rem,4vw,2.5rem)}
+.hero-inner{max-width:720px}
+.hero-hi{color:var(--accent);font-size:0.95rem;font-weight:600;
+  letter-spacing:0.12em;margin-bottom:1rem;display:block}
+.hero h1{margin-bottom:0.5rem}
+.grad{background:linear-gradient(135deg,var(--accent),var(--accent2),var(--accent3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.1rem;color:var(--muted);max-width:560px;margin:1.4rem 0 2.2rem}
+.hero-btns{display:flex;gap:0.9rem;flex-wrap:wrap}
+.hero-stats{display:flex;gap:2.2rem;margin-top:3.5rem;padding-top:2rem;
+  border-top:1px solid var(--border);flex-wrap:wrap}
+.hs .n{font-size:1.9rem;font-weight:800;color:var(--white);display:block}
+.hs .l{font-size:0.75rem;color:var(--muted)}
+.cursor{animation:blink 1s step-end infinite;color:var(--accent)}
+@keyframes blink{50%{opacity:0}}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:-1;
+  animation:float 9s ease-in-out infinite}
+.o1{width:380px;height:380px;background:rgba(100,255,218,0.06);top:-80px;right:-80px}
+.o2{width:320px;height:320px;background:rgba(124,58,237,0.08);bottom:80px;left:-80px;animation-delay:-4s}
+.o3{width:220px;height:220px;background:rgba(244,114,182,0.05);top:55%;right:25%;animation-delay:-7s}
+@keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-28px) scale(1.04)}}
+
+/* ══ FOOTER ══ */
+footer{border-top:1px solid var(--border);padding:1.6rem 0;text-align:center;margin-top:2rem}
+footer p{font-size:0.8rem;color:var(--muted);margin:0}
+footer span{color:var(--accent)}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:800px){
+  nav ul{display:none;flex-direction:column;position:fixed;top:var(--nav-h);
+    left:0;right:0;background:rgba(10,10,15,0.97);border-bottom:1px solid var(--border);
+    padding:1rem;gap:0.2rem}
+  nav ul.open{display:flex}
+  .burger{display:flex}
+  .hire-btn{display:none}
+  .contact-grid{grid-template-columns:1fr}
+  .hero h1{font-size:2.2rem}
+}
+</style>
 </head>
 <body>
-<div id="nav-placeholder"></div>
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
-<div class="orb orb3"></div>
 
-<div class="page">
-  <section class="hero">
-    <div class="hero-content">
-      <span class="hero-greeting">👋 Hello, I'm</span>
-      <h1>
-        <span class="name">Balapu Vishnu Vardhan</span><br/>
-        <span class="role">Data Analyst &amp; Developer</span><span class="cursor">_</span>
-      </h1>
-      <p class="hero-sub">
-        CS Undergraduate at Vel Tech University (CGPA 9.3) — turning raw data into clear insights
-        and building full-stack applications that solve real problems.
-      </p>
+<!-- ORBS -->
+<div class="orb o1"></div>
+<div class="orb o2"></div>
+<div class="orb o3"></div>
+
+<!-- ══ NAVBAR ══ -->
+<nav>
+  <span class="logo">Vishnu<span>.</span></span>
+  <ul id="nav-links">
+    <li><a href="#" onclick="show('home')"        class="active" id="nl-home">Home</a></li>
+    <li><a href="#" onclick="show('about')"        id="nl-about">About</a></li>
+    <li><a href="#" onclick="show('skills')"       id="nl-skills">Skills</a></li>
+    <li><a href="#" onclick="show('da')"           id="nl-da">Data Analysis</a></li>
+    <li><a href="#" onclick="show('projects')"     id="nl-projects">Projects</a></li>
+    <li><a href="#" onclick="show('certs')"        id="nl-certs">Certifications</a></li>
+    <li><a href="#" onclick="show('contact')"      id="nl-contact">Contact</a></li>
+  </ul>
+  <a href="mailto:balapuvishnu@gmail.com" class="hire-btn">Hire Me</a>
+  <div class="burger" id="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ══════════════ HOME ══════════════ -->
+<section id="sec-home" class="page-section active">
+  <div class="hero">
+    <div class="hero-inner">
+      <span class="hero-hi">👋 Hello, I'm</span>
+      <h1>Balapu Vishnu Vardhan<br/><span class="grad">Data Analyst &amp; Developer</span><span class="cursor">_</span></h1>
+      <p class="hero-sub">CS Undergraduate at Vel Tech University (CGPA 9.3) — turning raw data into clear insights and building full-stack applications that solve real problems.</p>
       <div class="hero-btns">
-        <a href="data-analysis.html" class="btn btn-primary">View DA Projects</a>
-        <a href="projects.html"      class="btn btn-outline">Dev Projects</a>
-      </div>
-      <div class="quick-nav">
-        <a href="about.html">📋 About</a>
-        <a href="skills.html">⚡ Skills</a>
-        <a href="data-analysis.html">📊 Data Analysis</a>
-        <a href="projects.html">💻 Projects</a>
-        <a href="certifications.html">🏆 Certifications</a>
-        <a href="contact.html">✉️ Contact</a>
-        <a href="https://github.com/vishnuvardhan999-hub" target="_blank">🐙 GitHub</a>
+        <button class="btn btn-p" onclick="show('da')">📊 Data Analysis Projects</button>
+        <button class="btn btn-o" onclick="show('projects')">💻 Dev Projects</button>
+        <button class="btn btn-o" onclick="show('contact')">✉️ Contact Me</button>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat"><span class="num">9.3</span><span class="lbl">CGPA / 10</span></div>
-        <div class="hero-stat"><span class="num">4+</span><span class="lbl">DA Projects</span></div>
-        <div class="hero-stat"><span class="num">4+</span><span class="lbl">Dev Projects</span></div>
-        <div class="hero-stat"><span class="num">4</span><span class="lbl">Certifications</span></div>
+        <div class="hs"><span class="n">9.3</span><span class="l">CGPA / 10</span></div>
+        <div class="hs"><span class="n">4+</span><span class="l">DA Projects</span></div>
+        <div class="hs"><span class="n">4+</span><span class="l">Dev Projects</span></div>
+        <div class="hs"><span class="n">4</span><span class="l">Certifications</span></div>
+        <div class="hs"><span class="n">2026</span><span class="l">Graduating</span></div>
       </div>
     </div>
-  </section>
-</div>
+  </div>
+  <footer><p>Built by <span>Balapu Vishnu Vardhan</span> &copy; 2025</p></footer>
+</section>
 
-<footer>
-  <p>Built by <span>Balapu Vishnu Vardhan</span> &copy; 2025</p>
-</footer>
+<!-- ══════════════ ABOUT ══════════════ -->
+<section id="sec-about" class="page-section">
+  <div class="container"><div class="section">
+    <span class="section-tag">Who I Am</span>
+    <h2>About Me</h2>
+    <div class="section-line"></div>
+    <div class="g2" style="align-items:start;gap:3rem;margin-bottom:3.5rem">
+      <div>
+        <p style="font-size:1.02rem;color:var(--text);line-height:1.95">
+          Dedicated and adaptable Computer Science undergraduate with a robust foundation in software development, data analysis, and problem-solving. Committed to continuous learning and delivering innovative, efficient solutions.
+        </p>
+        <p>Quick learner with a proven ability to collaborate effectively and contribute to impactful projects. I love transforming messy datasets into clean insights and building scalable applications end-to-end.</p>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.8rem">
+          <button class="btn btn-p" onclick="show('da')">My DA Work</button>
+          <button class="btn btn-o" onclick="show('contact')">Contact Me</button>
+        </div>
+      </div>
+      <div class="g2" style="gap:1rem">
+        <div class="sbox"><span class="n">9.3</span><span class="l">CGPA</span></div>
+        <div class="sbox"><span class="n">2026</span><span class="l">Graduating</span></div>
+        <div class="sbox"><span class="n">4+</span><span class="l">DA Projects</span></div>
+        <div class="sbox"><span class="n">4+</span><span class="l">Dev Projects</span></div>
+      </div>
+    </div>
+    <h3 style="color:var(--accent);margin-bottom:2rem">Education</h3>
+    <div class="tl">
+      <div class="tl-i"><span class="tl-date">2022 — 2026</span><h4>B.Tech — Computer Science &amp; Engineering</h4><p>Vel Tech Rangarajan Dr. Sagunthala R&amp;D Institute of Science and Technology</p><div class="tags"><span class="tag">CGPA: 9.3 / 10</span></div></div>
+      <div class="tl-i"><span class="tl-date">2020 — 2022</span><h4>Intermediate (MPC)</h4><p>Sri Nalanda Junior College</p><div class="tags"><span class="tag">90%</span></div></div>
+      <div class="tl-i"><span class="tl-date">2020</span><h4>SSC</h4><p>Sri Sai Vidyalaya</p><div class="tags"><span class="tag">96%</span></div></div>
+    </div>
+    <h3 style="color:var(--accent);margin:3.5rem 0 1.5rem">Internship</h3>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem">
+        <h4>Frontend Developer Intern — CodeAlpha, Chennai</h4>
+      </div>
+      <p style="color:var(--accent);font-size:0.85rem;font-weight:600;margin-bottom:0.4rem">📁 Online Portfolio Builder</p>
+      <ul style="margin-left:1.2rem;font-size:0.88rem;color:var(--muted);margin-bottom:1rem">
+        <li>Built responsive portfolio builder using HTML, CSS &amp; JavaScript — cut setup time by <strong style="color:var(--text)">70%</strong>.</li>
+        <li>Implemented layouts across 5+ screen sizes for seamless mobile &amp; desktop access.</li>
+      </ul>
+      <p style="color:var(--accent);font-size:0.85rem;font-weight:600;margin-bottom:0.4rem">📁 Expense Tracker Web App</p>
+      <ul style="margin-left:1.2rem;font-size:0.88rem;color:var(--muted)">
+        <li>Budget management app supporting expense logging across <strong style="color:var(--text)">10 categories</strong>.</li>
+        <li>Integrated 3 chart types (bar, pie, trend line) for spending visualization.</li>
+      </ul>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag b">Charts</span><span class="tag o">Responsive</span></div>
+    </div>
+  </div></div>
+  <footer><p>Built by <span>Balapu Vishnu Vardhan</span> &copy; 2025</p></footer>
+</section>
 
-<script src="nav.js"></script>
+<!-- ══════════════ SKILLS ══════════════ -->
+<section id="sec-skills" class="page-section">
+  <div class="container"><div class="section">
+    <span class="section-tag">What I Know</span>
+    <h2>Technical Skills</h2>
+    <div class="section-line"></div>
+    <div class="g2" style="gap:1.4rem">
+      <div class="card"><div class="sg"><h4>💻 Languages</h4><div class="pills"><span class="pill">Java</span><span class="pill">Python</span><span class="pill">JavaScript</span></div></div></div>
+      <div class="card"><div class="sg"><h4>📊 Data Analysis &amp; Visualization</h4><div class="pills"><span class="pill">MySQL</span><span class="pill">Microsoft Excel</span><span class="pill">Tableau</span><span class="pill">Power BI</span><span class="pill">NumPy</span><span class="pill">Pandas</span><span class="pill">Matplotlib</span></div></div></div>
+      <div class="card"><div class="sg"><h4>🌐 Web Technologies</h4><div class="pills"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">React</span><span class="pill">Angular</span><span class="pill">Node.js</span><span class="pill">Express.js</span><span class="pill">REST APIs</span></div></div></div>
+      <div class="card"><div class="sg"><h4>🗄️ Databases</h4><div class="pills"><span class="pill">MySQL</span><span class="pill">MongoDB</span></div></div></div>
+      <div class="card"><div class="sg"><h4>🔧 Tools</h4><div class="pills"><span class="pill">Git</span><span class="pill">GitHub</span><span class="pill">VS Code</span><span class="pill">Spring Boot</span><span class="pill">JWT</span><span class="pill">WebSocket</span></div></div></div>
+      <div class="card"><div class="sg"><h4>📐 Concepts</h4><div class="pills"><span class="pill">Data Cleaning</span><span class="pill">EDA</span><span class="pill">Dashboard Design</span><span class="pill">OOP</span><span class="pill">RBAC</span><span class="pill">Agile</span></div></div></div>
+    </div>
+    <div style="margin-top:2.5rem">
+      <h3 style="color:var(--accent);margin-bottom:1rem">⚡ Add a New Skill</h3>
+      <div style="display:flex;gap:0.7rem;flex-wrap:wrap;align-items:center">
+        <input id="sk-inp" type="text" placeholder="e.g. TypeScript" style="padding:0.6rem 1rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;color:var(--white);font-size:0.88rem;min-width:200px"/>
+        <button class="btn btn-p" style="padding:0.6rem 1.2rem" onclick="addSkill()">Add</button>
+      </div>
+      <div id="extra-skills" style="display:flex;flex-wrap:wrap;gap:0.55rem;margin-top:1rem"></div>
+    </div>
+  </div></div>
+  <footer><p>Built by <span>Balapu Vishnu Vardhan</span> &copy; 2025</p></footer>
+</section>
+
+<!-- ══════════════ DATA ANALYSIS ══════════════ -->
+<section id="sec-da" class="page-section">
+  <div class="container"><div class="section">
+    <span class="section-tag">Data Analysis</span>
+    <h2>Data Analysis Projects</h2>
+    <div class="section-line"></div>
+    <p style="max-width:580px;margin-bottom:1.5rem">End-to-end data projects using SQL, Excel, Tableau, and Power BI — each with full datasets and detailed READMEs on GitHub.</p>
+    <a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio" target="_blank" class="btn btn-p" style="margin-bottom:3rem">🐙 Full Portfolio on GitHub</a>
+
+    <div class="g2" id="da-grid">
+      <div class="pcard">
+        <div class="pimg"><img src="images/sql-preview.svg" alt="SQL"/></div>
+        <div class="pbody"><div class="pnum">01 — SQL</div><h3>Tech Layoffs — Data Cleaning &amp; EDA</h3><p>Cleaned 1,000+ rows of global tech layoff data. Used ROW_NUMBER() for deduplication, self-joins for NULL fills, CTEs + DENSE_RANK() for rolling totals and top-5 yearly rankings.</p><div class="tags"><span class="tag">MySQL</span><span class="tag">CTE</span><span class="tag">Window Functions</span><span class="tag b">EDA</span></div><div class="plinks"><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/sql" target="_blank">🔗 GitHub</a><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/sql" target="_blank">📘 README</a></div></div>
+      </div>
+      <div class="pcard">
+        <div class="pimg"><img src="images/excel-preview.svg" alt="Excel"/></div>
+        <div class="pbody"><div class="pnum">02 — Excel</div><h3>Bike Buyers Sales Dashboard</h3><p>Analyzed 1,000 customer records to identify bike purchase behavior. Cleaned raw data, engineered Age Bracket with nested IFs, and built an interactive dashboard with Pivot Tables and slicers.</p><div class="tags"><span class="tag">Excel</span><span class="tag">Pivot Tables</span><span class="tag b">Slicers</span><span class="tag o">Dashboard</span></div><div class="plinks"><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/excel" target="_blank">🔗 GitHub</a><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/excel" target="_blank">📘 README</a></div></div>
+      </div>
+      <div class="pcard">
+        <div class="pimg"><img src="images/tableau-preview.svg" alt="Tableau"/></div>
+        <div class="pbody"><div class="pnum">03 — Tableau</div><h3>Seattle AirBnB Market Dashboard</h3><p>Explored 3,818 listings across 3 data sources. Built interactive dashboard with zipcode price map, bedroom pricing chart, weekly revenue trends and LOD expressions.</p><div class="tags"><span class="tag">Tableau</span><span class="tag b">LOD Expressions</span><span class="tag p">Map Viz</span><span class="tag">Calculated Fields</span></div><div class="plinks"><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/tableau" target="_blank">🔗 GitHub</a><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/tableau" target="_blank">📘 README</a></div></div>
+      </div>
+      <div class="pcard">
+        <div class="pimg"><img src="images/powerbi-preview.svg" alt="Power BI"/></div>
+        <div class="pbody"><div class="pnum">04 — Power BI</div><h3>Data Professional Survey Dashboard</h3><p>Analyzed 630-respondent survey. Used Power Query to convert salary ranges to midpoints. Revealed salary happiness of 4.27/10 and 59% career switchers into data.</p><div class="tags"><span class="tag">Power BI</span><span class="tag k">DAX</span><span class="tag p">Power Query</span><span class="tag b">Gauge Charts</span></div><div class="plinks"><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/power%20bi" target="_blank">🔗 GitHub</a><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/power%20bi" target="_blank">📘 README</a></div></div>
+      </div>
+    </div>
+
+    <div style="margin-top:2.5rem">
+      <button class="btn btn-o" onclick="toggleAdd('da-panel')">+ Add New DA Project</button>
+      <div class="add-panel" id="da-panel">
+        <h3>New Data Analysis Project</h3>
+        <div class="fg"><label>Title *</label><input type="text" id="da-t" placeholder="e.g. Customer Churn Analysis"/></div>
+        <div class="fg"><label>Tool / Stack *</label><input type="text" id="da-s" placeholder="e.g. Python · Pandas · Seaborn"/></div>
+        <div class="fg"><label>Description *</label><textarea id="da-d" rows="3" placeholder="What did you analyse and what techniques did you use?"></textarea></div>
+        <div class="fg"><label>GitHub Link *</label><input type="url" id="da-l" placeholder="https://github.com/..."/></div>
+        <button class="btn btn-p" onclick="addDA()">Add Project</button>
+        <div class="ok" id="da-ok">✅ Project added!</div>
+      </div>
+    </div>
+  </div></div>
+  <footer><p>Built by <span>Balapu Vishnu Vardhan</span> &copy; 2025</p></footer>
+</section>
+
+<!-- ══════════════ PROJECTS ══════════════ -->
+<section id="sec-projects" class="page-section">
+  <div class="container"><div class="section">
+    <span class="section-tag">Development</span>
+    <h2>Software Projects</h2>
+    <div class="section-line"></div>
+    <p style="max-width:560px;margin-bottom:3rem">Full-stack and web development projects built with modern technologies.</p>
+
+    <div class="g2" id="dev-grid">
+      <div class="pcard">
+        <div class="pimg" style="background:linear-gradient(135deg,#0f0f2a,#1a1a3e);display:flex;align-items:center;justify-content:center;min-height:170px"><span style="font-size:3.5rem">🏠</span></div>
+        <div class="pbody"><div class="pnum">01 — Angular · TypeScript · MySQL</div><h3>Online House Rental Management System</h3><p>Scalable rental platform for property listings, tenant registration and booking. JWT-driven access control with distinct roles for Owners, Tenants and Admins. RESTful APIs and relational MySQL schemas.</p><div class="tags"><span class="tag b">Angular</span><span class="tag">TypeScript</span><span class="tag p">REST APIs</span><span class="tag o">MySQL</span><span class="tag">JWT</span></div><div class="plinks"><a href="https://github.com/vishnuvardhan999-hub" target="_blank">🔗 GitHub</a></div></div>
+      </div>
+      <div class="pcard">
+        <div class="pimg" style="background:linear-gradient(135deg,#0a1628,#0d2137);display:flex;align-items:center;justify-content:center;min-height:170px"><span style="font-size:3.5rem">💬</span></div>
+        <div class="pbody"><div class="pnum">02 — MERN Stack · WebSocket</div><h3>Real-Time Chat Application</h3><p>High-performance messaging platform for multiple concurrent users. WebSocket for real-time delivery, JWT-based auth for session security, presence tracking and threaded interactions.</p><div class="tags"><span class="tag">MongoDB</span><span class="tag b">Express.js</span><span class="tag">React</span><span class="tag o">Node.js</span><span class="tag p">WebSocket</span><span class="tag">JWT</span></div><div class="plinks"><a href="https://github.com/vishnuvardhan999-hub" target="_blank">🔗 GitHub</a></div></div>
+      </div>
+      <div class="pcard">
+        <div class="pimg" style="background:linear-gradient(135deg,#1a0f2e,#2a1a3e);display:flex;align-items:center;justify-content:center;min-height:170px"><span style="font-size:3.5rem">📦</span></div>
+        <div class="pbody"><div class="pnum">03 — Java Full Stack · Spring Boot</div><h3>Smart Procurement &amp; Vendor Management</h3><p>Procurement automation for requisitions, approvals and purchase orders. Role-based workflows for employees, vendors and finance teams. Spring Boot backend with MySQL-driven data management.</p><div class="tags"><span class="tag b">Java</span><span class="tag p">Spring Boot</span><span class="tag o">MySQL</span><span class="tag">REST APIs</span><span class="tag k">RBAC</span></div><div class="plinks"><a href="https://github.com/vishnuvardhan999-hub" target="_blank">🔗 GitHub</a></div></div>
+      </div>
+      <div class="pcard">
+        <div class="pimg" style="background:linear-gradient(135deg,#0f1a0f,#1a2e1a);display:flex;align-items:center;justify-content:center;min-height:170px"><span style="font-size:3.5rem">💸</span></div>
+        <div class="pbody"><div class="pnum">04 — HTML · CSS · JavaScript</div><h3>Expense Tracker Web App</h3><p>Budget management app supporting expense logging across 10 spending categories. Integrated 3 interactive chart types — bar, pie, and trend line — to visualize spending at a glance.</p><div class="tags"><span class="tag o">HTML</span><span class="tag b">CSS</span><span class="tag">JavaScript</span><span class="tag k">Charts</span></div><div class="plinks"><a href="https://github.com/vishnuvardhan999-hub" target="_blank">🔗 GitHub</a></div></div>
+      </div>
+    </div>
+
+    <div style="margin-top:2.5rem">
+      <button class="btn btn-o" onclick="toggleAdd('dev-panel')">+ Add New Dev Project</button>
+      <div class="add-panel" id="dev-panel">
+        <h3>New Development Project</h3>
+        <div class="fg"><label>Title *</label><input type="text" id="dv-t" placeholder="e.g. E-Commerce Platform"/></div>
+        <div class="fg"><label>Tech Stack *</label><input type="text" id="dv-s" placeholder="e.g. React · Node.js · MongoDB"/></div>
+        <div class="fg"><label>Description *</label><textarea id="dv-d" rows="3"></textarea></div>
+        <div class="fg"><label>GitHub Link *</label><input type="url" id="dv-l" placeholder="https://github.com/..."/></div>
+        <div class="fg"><label>Emoji</label><input type="text" id="dv-e" placeholder="🚀" maxlength="4"/></div>
+        <button class="btn btn-p" onclick="addDev()">Add Project</button>
+        <div class="ok" id="dv-ok">✅ Project added!</div>
+      </div>
+    </div>
+  </div></div>
+  <footer><p>Built by <span>Balapu Vishnu Vardhan</span> &copy; 2025</p></footer>
+</section>
+
+<!-- ══════════════ CERTIFICATIONS ══════════════ -->
+<section id="sec-certs" class="page-section">
+  <div class="container"><div class="section">
+    <span class="section-tag">Achievements</span>
+    <h2>Licenses &amp; Certifications</h2>
+    <div class="section-line"></div>
+    <div class="g2" id="cert-grid">
+      <div class="ccard"><div class="ci">🏆</div><div><h4>Full Stack Development</h4><p>Matrimony &nbsp;·&nbsp; 2025</p><div class="tags"><span class="tag">Full Stack</span><span class="tag b">Web Dev</span></div></div></div>
+      <div class="ccard"><div class="ci">🎓</div><div><h4>Java Full Stack</h4><p>Wipro Talent Acquisition &nbsp;·&nbsp; 2025</p><div class="tags"><span class="tag b">Java</span><span class="tag p">Spring Boot</span></div></div></div>
+      <div class="ccard"><div class="ci">📜</div><div><h4>Frontend Development Certification</h4><p>Coursera &nbsp;·&nbsp; 2025</p><div class="tags"><span class="tag o">HTML/CSS</span><span class="tag">JavaScript</span></div></div></div>
+      <div class="ccard"><div class="ci">☕</div><div><h4>Java Programming Fundamentals</h4><p>Infosys SpringBoard &nbsp;·&nbsp; 2024</p><div class="tags"><span class="tag b">Java</span><span class="tag">OOP</span></div></div></div>
+    </div>
+    <div style="margin-top:2.5rem">
+      <button class="btn btn-o" onclick="toggleAdd('cert-panel')">+ Add New Certification</button>
+      <div class="add-panel" id="cert-panel">
+        <h3>New Certification</h3>
+        <div class="fg"><label>Title *</label><input type="text" id="ce-t" placeholder="e.g. AWS Cloud Practitioner"/></div>
+        <div class="fg"><label>Issuer &amp; Year *</label><input type="text" id="ce-i" placeholder="e.g. Amazon Web Services · 2025"/></div>
+        <div class="fg"><label>Tags (comma separated)</label><input type="text" id="ce-s" placeholder="e.g. Cloud, AWS"/></div>
+        <div class="fg"><label>Icon Emoji</label><input type="text" id="ce-e" placeholder="🏆" maxlength="4"/></div>
+        <button class="btn btn-p" onclick="addCert()">Add Certification</button>
+        <div class="ok" id="ce-ok">✅ Added!</div>
+      </div>
+    </div>
+  </div></div>
+  <footer><p>Built by <span>Balapu Vishnu Vardhan</span> &copy; 2025</p></footer>
+</section>
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<section id="sec-contact" class="page-section">
+  <div class="container"><div class="section">
+    <span class="section-tag">Get In Touch</span>
+    <h2>Contact Me</h2>
+    <div class="section-line"></div>
+    <p style="max-width:480px;margin-bottom:3rem">Open to internships, full-time roles, and collaborations in data analysis and software development.</p>
+    <div class="contact-grid">
+      <div>
+        <div class="cinfo-block"><h4>📞 Phone</h4><a href="tel:+919059387828">+91 9059387828</a></div>
+        <div class="cinfo-block"><h4>✉️ Email</h4><a href="mailto:balapuvishnu@gmail.com">balapuvishnu@gmail.com</a></div>
+        <div class="cinfo-block">
+          <h4>🔗 Connect</h4>
+          <a href="https://github.com/vishnuvardhan999-hub" target="_blank" class="soc-link">🐙 github.com/vishnuvardhan999-hub</a>
+          <a href="https://linkedin.com/in/balapuvishnuvardhan" target="_blank" class="soc-link">💼 linkedin.com/in/balapuvishnuvardhan</a>
+          <a href="https://vishnuvardhan999-hub.github.io" target="_blank" class="soc-link">🌐 vishnuvardhan999-hub.github.io</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:1.4rem">Send a Message</h3>
+        <form onsubmit="submitContact(event)">
+          <div class="fg"><label>Name</label><input type="text" id="cf-n" placeholder="Your name" required/></div>
+          <div class="fg"><label>Email</label><input type="email" id="cf-e" placeholder="your@email.com" required/></div>
+          <div class="fg"><label>Subject</label><input type="text" id="cf-s" placeholder="Internship / Collaboration"/></div>
+          <div class="fg"><label>Message</label><textarea id="cf-m" rows="4" placeholder="Hi Vishnu..." required></textarea></div>
+          <button type="submit" class="btn btn-p" style="width:100%">Send Message ✉️</button>
+          <div class="ok" id="cf-ok" style="text-align:center;margin-top:0.8rem">✅ Message sent! I'll be in touch soon.</div>
+        </form>
+      </div>
+    </div>
+  </div></div>
+  <footer><p>Built by <span>Balapu Vishnu Vardhan</span> &copy; 2025</p></footer>
+</section>
+
+<!-- ══════════════ JAVASCRIPT ══════════════ -->
+<script>
+// ── SPA ROUTING ──
+var sections = ['home','about','skills','da','projects','certs','contact'];
+function show(id) {
+  sections.forEach(function(s){
+    document.getElementById('sec-'+s).classList.remove('active');
+    var nl = document.getElementById('nl-'+s);
+    if(nl) nl.classList.remove('active');
+  });
+  document.getElementById('sec-'+id).classList.add('active');
+  var nl = document.getElementById('nl-'+id);
+  if(nl) nl.classList.add('active');
+  window.scrollTo(0,0);
+  document.getElementById('nav-links').classList.remove('open');
+  return false;
+}
+// Prevent default on nav links
+document.querySelectorAll('nav ul li a').forEach(function(a){
+  a.addEventListener('click',function(e){ e.preventDefault(); });
+});
+
+// ── BURGER MENU ──
+function toggleMenu(){document.getElementById('nav-links').classList.toggle('open')}
+
+// ── TOGGLE ADD PANELS ──
+function toggleAdd(id){
+  var p = document.getElementById(id);
+  p.style.display = p.style.display==='block' ? 'none' : 'block';
+}
+
+function flash(id){var el=document.getElementById(id);el.style.display='block';setTimeout(function(){el.style.display='none'},3000)}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+// ── ADD SKILL ──
+(function(){var s=JSON.parse(localStorage.getItem('x_skills')||'[]');s.forEach(function(v){var sp=document.createElement('span');sp.className='pill';sp.textContent=v;document.getElementById('extra-skills').appendChild(sp)})})();
+function addSkill(){var v=document.getElementById('sk-inp').value.trim();if(!v)return;var s=JSON.parse(localStorage.getItem('x_skills')||'[]');s.push(v);localStorage.setItem('x_skills',JSON.stringify(s));var sp=document.createElement('span');sp.className='pill';sp.textContent=v;document.getElementById('extra-skills').appendChild(sp);document.getElementById('sk-inp').value=''}
+
+// ── ADD DA PROJECT ──
+(function(){var s=JSON.parse(localStorage.getItem('x_da')||'[]');s.forEach(rDA)})();
+function addDA(){var p={t:document.getElementById('da-t').value.trim(),s:document.getElementById('da-s').value.trim(),d:document.getElementById('da-d').value.trim(),l:document.getElementById('da-l').value.trim()};if(!p.t||!p.s||!p.d||!p.l){alert('Fill all required fields.');return}var arr=JSON.parse(localStorage.getItem('x_da')||'[]');arr.push(p);localStorage.setItem('x_da',JSON.stringify(arr));rDA(p);['da-t','da-s','da-d','da-l'].forEach(function(id){document.getElementById(id).value=''});flash('da-ok')}
+function rDA(p){var n=document.querySelectorAll('#da-grid .pcard').length+1;var c=document.createElement('div');c.className='pcard';c.innerHTML='<div class="pimg" style="background:var(--bg3);display:flex;align-items:center;justify-content:center;min-height:160px"><span style="font-size:3rem">📊</span></div><div class="pbody"><div class="pnum">0'+n+' — Custom</div><h3>'+esc(p.t)+'</h3><p>'+esc(p.d)+'</p><div class="tags"><span class="tag">'+esc(p.s)+'</span></div><div class="plinks"><a href="'+esc(p.l)+'" target="_blank">🔗 GitHub</a></div></div>';document.getElementById('da-grid').appendChild(c)}
+
+// ── ADD DEV PROJECT ──
+(function(){var s=JSON.parse(localStorage.getItem('x_dev')||'[]');s.forEach(rDev)})();
+function addDev(){var p={t:document.getElementById('dv-t').value.trim(),s:document.getElementById('dv-s').value.trim(),d:document.getElementById('dv-d').value.trim(),l:document.getElementById('dv-l').value.trim(),e:document.getElementById('dv-e').value.trim()||'💻'};if(!p.t||!p.s||!p.d||!p.l){alert('Fill all required fields.');return}var arr=JSON.parse(localStorage.getItem('x_dev')||'[]');arr.push(p);localStorage.setItem('x_dev',JSON.stringify(arr));rDev(p);['dv-t','dv-s','dv-d','dv-l','dv-e'].forEach(function(id){document.getElementById(id).value=''});flash('dv-ok')}
+function rDev(p){var n=document.querySelectorAll('#dev-grid .pcard').length+1;var c=document.createElement('div');c.className='pcard';c.innerHTML='<div class="pimg" style="background:linear-gradient(135deg,var(--bg2),var(--bg3));display:flex;align-items:center;justify-content:center;min-height:160px"><span style="font-size:3.5rem">'+esc(p.e)+'</span></div><div class="pbody"><div class="pnum">0'+n+' — Custom</div><h3>'+esc(p.t)+'</h3><p>'+esc(p.d)+'</p><div class="tags"><span class="tag">'+esc(p.s)+'</span></div><div class="plinks"><a href="'+esc(p.l)+'" target="_blank">🔗 GitHub</a></div></div>';document.getElementById('dev-grid').appendChild(c)}
+
+// ── ADD CERTIFICATION ──
+(function(){var s=JSON.parse(localStorage.getItem('x_certs')||'[]');s.forEach(rCert)})();
+function addCert(){var c={t:document.getElementById('ce-t').value.trim(),i:document.getElementById('ce-i').value.trim(),s:document.getElementById('ce-s').value.trim(),e:document.getElementById('ce-e').value.trim()||'🏆'};if(!c.t||!c.i){alert('Fill title and issuer.');return}var arr=JSON.parse(localStorage.getItem('x_certs')||'[]');arr.push(c);localStorage.setItem('x_certs',JSON.stringify(arr));rCert(c);['ce-t','ce-i','ce-s','ce-e'].forEach(function(id){document.getElementById(id).value=''});flash('ce-ok')}
+function rCert(c){var tags=c.s?c.s.split(',').map(function(t){return'<span class="tag">'+esc(t.trim())+'</span>'}).join(''):'';var el=document.createElement('div');el.className='ccard';el.innerHTML='<div class="ci">'+esc(c.e)+'</div><div><h4>'+esc(c.t)+'</h4><p>'+esc(c.i)+'</p>'+(tags?'<div class="tags">'+tags+'</div>':'')+'</div>';document.getElementById('cert-grid').appendChild(el)}
+
+// ── CONTACT FORM ──
+function submitContact(e){e.preventDefault();var m={name:document.getElementById('cf-n').value,email:document.getElementById('cf-e').value,subject:document.getElementById('cf-s').value,msg:document.getElementById('cf-m').value,date:new Date().toLocaleString()};var arr=JSON.parse(localStorage.getItem('x_msgs')||'[]');arr.push(m);localStorage.setItem('x_msgs',JSON.stringify(arr));e.target.reset();flash('cf-ok');window.location.href='mailto:balapuvishnu@gmail.com?subject='+encodeURIComponent(m.subject||'Portfolio Contact')+'&body='+encodeURIComponent('From: '+m.name+'\nEmail: '+m.email+'\n\n'+m.msg)}
+</script>
 </body>
 </html>
