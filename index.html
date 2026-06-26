@@ -338,20 +338,42 @@ footer span{color:var(--accent)}
     <h2>Technical Skills</h2>
     <div class="section-line"></div>
     <div class="g2" style="gap:1.4rem">
-      <div class="card"><div class="sg"><h4>💻 Languages</h4><div class="pills"><span class="pill">Java</span><span class="pill">Python</span><span class="pill">JavaScript</span></div></div></div>
-      <div class="card"><div class="sg"><h4>📊 Data Analysis &amp; Visualization</h4><div class="pills"><span class="pill">MySQL</span><span class="pill">Microsoft Excel</span><span class="pill">Tableau</span><span class="pill">Power BI</span><span class="pill">NumPy</span><span class="pill">Pandas</span><span class="pill">Matplotlib</span></div></div></div>
-      <div class="card"><div class="sg"><h4>🌐 Web Technologies</h4><div class="pills"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">React</span><span class="pill">Angular</span><span class="pill">Node.js</span><span class="pill">Express.js</span><span class="pill">REST APIs</span></div></div></div>
-      <div class="card"><div class="sg"><h4>🗄️ Databases</h4><div class="pills"><span class="pill">MySQL</span><span class="pill">MongoDB</span></div></div></div>
-      <div class="card"><div class="sg"><h4>🔧 Tools</h4><div class="pills"><span class="pill">Git</span><span class="pill">GitHub</span><span class="pill">VS Code</span><span class="pill">Spring Boot</span><span class="pill">JWT</span><span class="pill">WebSocket</span></div></div></div>
-      <div class="card"><div class="sg"><h4>📐 Concepts</h4><div class="pills"><span class="pill">Data Cleaning</span><span class="pill">EDA</span><span class="pill">Dashboard Design</span><span class="pill">OOP</span><span class="pill">RBAC</span><span class="pill">Agile</span></div></div></div>
+      <div class="card"><div class="sg"><h4>💻 Languages</h4><div class="pills" id="sk-pills-languages"><span class="pill">Java</span><span class="pill">Python</span><span class="pill">JavaScript</span></div></div></div>
+      <div class="card"><div class="sg"><h4>📊 Data Analysis &amp; Visualization</h4><div class="pills" id="sk-pills-data"><span class="pill">MySQL</span><span class="pill">Microsoft Excel</span><span class="pill">Tableau</span><span class="pill">Power BI</span><span class="pill">NumPy</span><span class="pill">Pandas</span><span class="pill">Matplotlib</span></div></div></div>
+      <div class="card"><div class="sg"><h4>🌐 Web Technologies</h4><div class="pills" id="sk-pills-web"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">React</span><span class="pill">Angular</span><span class="pill">Node.js</span><span class="pill">Express.js</span><span class="pill">REST APIs</span></div></div></div>
+      <div class="card"><div class="sg"><h4>🗄️ Databases</h4><div class="pills" id="sk-pills-db"><span class="pill">MySQL</span><span class="pill">MongoDB</span></div></div></div>
+      <div class="card"><div class="sg"><h4>🔧 Tools</h4><div class="pills" id="sk-pills-tools"><span class="pill">Git</span><span class="pill">GitHub</span><span class="pill">VS Code</span><span class="pill">Spring Boot</span><span class="pill">JWT</span><span class="pill">WebSocket</span></div></div></div>
+      <div class="card"><div class="sg"><h4>📐 Concepts</h4><div class="pills" id="sk-pills-concepts"><span class="pill">Data Cleaning</span><span class="pill">EDA</span><span class="pill">Dashboard Design</span><span class="pill">OOP</span><span class="pill">RBAC</span><span class="pill">Agile</span></div></div></div>
     </div>
     <div style="margin-top:2.5rem">
-      <h3 style="color:var(--accent);margin-bottom:1rem">⚡ Add a New Skill</h3>
-      <div style="display:flex;gap:0.7rem;flex-wrap:wrap;align-items:center">
-        <input id="sk-inp" type="text" placeholder="e.g. TypeScript" style="padding:0.6rem 1rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;color:var(--white);font-size:0.88rem;min-width:200px"/>
-        <button class="btn btn-p" style="padding:0.6rem 1.2rem" onclick="addSkill()">Add</button>
+      <h3 style="color:var(--accent);margin-bottom:0.5rem">⚡ Add a New Skill</h3>
+      <p style="font-size:0.85rem;margin-bottom:1.2rem">
+        Pick an existing category to add to it, or type a new category name to create a brand-new card.
+      </p>
+      <div style="display:flex;gap:0.7rem;flex-wrap:wrap;align-items:flex-end">
+        <div>
+          <label style="display:block;font-size:0.78rem;color:var(--muted);margin-bottom:0.3rem;letter-spacing:0.04em">SKILL NAME *</label>
+          <input id="sk-inp" type="text" placeholder="e.g. TensorFlow" style="padding:0.6rem 1rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;color:var(--white);font-size:0.88rem;width:220px"/>
+        </div>
+        <div>
+          <label style="display:block;font-size:0.78rem;color:var(--muted);margin-bottom:0.3rem;letter-spacing:0.04em">CATEGORY *</label>
+          <select id="sk-cat" style="padding:0.6rem 1rem;background:rgba(13,13,24,0.95);border:1px solid var(--border);border-radius:8px;color:var(--white);font-size:0.88rem;width:220px">
+            <option value="languages">💻 Languages</option>
+            <option value="data">📊 Data Analysis &amp; Visualization</option>
+            <option value="web">🌐 Web Technologies</option>
+            <option value="db">🗄️ Databases</option>
+            <option value="tools">🔧 Tools</option>
+            <option value="concepts">📐 Concepts</option>
+            <option value="__new__">✨ New Category (type below)</option>
+          </select>
+        </div>
+        <div id="sk-newcat-wrap" style="display:none">
+          <label style="display:block;font-size:0.78rem;color:var(--muted);margin-bottom:0.3rem;letter-spacing:0.04em">NEW CATEGORY NAME *</label>
+          <input id="sk-newcat" type="text" placeholder="e.g. 🤖 AI &amp; Machine Learning" style="padding:0.6rem 1rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;color:var(--white);font-size:0.88rem;width:260px"/>
+        </div>
+        <button class="btn btn-p" style="padding:0.6rem 1.2rem;align-self:flex-end" onclick="addSkill()">Add Skill</button>
       </div>
-      <div id="extra-skills" style="display:flex;flex-wrap:wrap;gap:0.55rem;margin-top:1rem"></div>
+      <div id="sk-ok" style="color:#4ade80;font-size:0.83rem;margin-top:0.6rem;display:none">✅ Skill added!</div>
     </div>
   </div></div>
   <footer><p>Built by <span>Balapu Vishnu Vardhan</span> &copy; 2025</p></footer>
@@ -542,8 +564,92 @@ function flash(id){var el=document.getElementById(id);el.style.display='block';s
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 
 // ── ADD SKILL ──
-(function(){var s=JSON.parse(localStorage.getItem('x_skills')||'[]');s.forEach(function(v){var sp=document.createElement('span');sp.className='pill';sp.textContent=v;document.getElementById('extra-skills').appendChild(sp)})})();
-function addSkill(){var v=document.getElementById('sk-inp').value.trim();if(!v)return;var s=JSON.parse(localStorage.getItem('x_skills')||'[]');s.push(v);localStorage.setItem('x_skills',JSON.stringify(s));var sp=document.createElement('span');sp.className='pill';sp.textContent=v;document.getElementById('extra-skills').appendChild(sp);document.getElementById('sk-inp').value=''}
+// Map category keys to the card pill containers
+var catMap = {
+  languages: 'sk-pills-languages',
+  data:      'sk-pills-data',
+  web:       'sk-pills-web',
+  db:        'sk-pills-db',
+  tools:     'sk-pills-tools',
+  concepts:  'sk-pills-concepts'
+};
+
+// Show/hide new-category input
+document.getElementById('sk-cat').addEventListener('change', function(){
+  document.getElementById('sk-newcat-wrap').style.display = this.value === '__new__' ? 'block' : 'none';
+});
+
+(function(){
+  var s = JSON.parse(localStorage.getItem('x_skills') || '[]');
+  s.forEach(function(item){ renderSkill(item.name, item.cat, item.catLabel); });
+})();
+
+function addSkill() {
+  var name = document.getElementById('sk-inp').value.trim();
+  var cat  = document.getElementById('sk-cat').value;
+  if (!name) { alert('Enter a skill name.'); return; }
+  if (cat === '__new__') {
+    var catLabel = document.getElementById('sk-newcat').value.trim();
+    if (!catLabel) { alert('Enter a name for the new category.'); return; }
+    // create a unique key from label
+    cat = 'custom_' + catLabel.replace(/\W+/g,'_').toLowerCase();
+    // Save new category
+    var cats = JSON.parse(localStorage.getItem('x_cats') || '[]');
+    if (!cats.find(function(c){ return c.key === cat; })) {
+      cats.push({ key: cat, label: catLabel });
+      localStorage.setItem('x_cats', JSON.stringify(cats));
+      buildNewCategoryCard(cat, catLabel);
+      // Also add to the dropdown
+      var opt = document.createElement('option');
+      opt.value = cat; opt.textContent = catLabel;
+      var sel = document.getElementById('sk-cat');
+      sel.insertBefore(opt, sel.lastElementChild);
+    }
+    document.getElementById('sk-newcat').value = '';
+    document.getElementById('sk-newcat-wrap').style.display = 'none';
+    document.getElementById('sk-cat').value = cat;
+  }
+  var arr = JSON.parse(localStorage.getItem('x_skills') || '[]');
+  arr.push({ name: name, cat: cat });
+  localStorage.setItem('x_skills', JSON.stringify(arr));
+  renderSkill(name, cat);
+  document.getElementById('sk-inp').value = '';
+  flash('sk-ok');
+}
+
+function renderSkill(name, cat) {
+  var containerId = catMap[cat] || 'sk-pills-' + cat;
+  var container = document.getElementById(containerId);
+  if (!container) return;
+  var sp = document.createElement('span');
+  sp.className = 'pill';
+  sp.textContent = name;
+  container.appendChild(sp);
+}
+
+function buildNewCategoryCard(key, label) {
+  var grid = document.querySelector('#sec-skills .g2');
+  var card = document.createElement('div');
+  card.className = 'card';
+  var pillsId = 'sk-pills-' + key;
+  card.innerHTML = '<div class="sg"><h4>' + esc(label) + '</h4><div class="pills" id="' + pillsId + '"></div></div>';
+  // Insert before the "add skill" div
+  var addDiv = document.querySelector('#sec-skills .g2 ~ div');
+  grid.appendChild(card);
+  catMap[key] = pillsId;
+}
+
+// Restore saved custom categories on load
+(function(){
+  var cats = JSON.parse(localStorage.getItem('x_cats') || '[]');
+  cats.forEach(function(c){
+    buildNewCategoryCard(c.key, c.label);
+    var sel = document.getElementById('sk-cat');
+    var opt = document.createElement('option');
+    opt.value = c.key; opt.textContent = c.label;
+    sel.insertBefore(opt, sel.lastElementChild);
+  });
+})();
 
 // ── ADD DA PROJECT ──
 (function(){var s=JSON.parse(localStorage.getItem('x_da')||'[]');s.forEach(rDA)})();
