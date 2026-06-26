@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Skills | Vishnu Vardhan</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page">
+  <div class="container">
+    <section class="section">
+      <span class="section-tag">What I Know</span>
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="section-line"></div>
+
+      <div class="grid-2" style="gap:1.5rem; align-items:start;">
+
+        <div class="card">
+          <div class="skill-group">
+            <h4>💻 Languages</h4>
+            <div class="skill-pills">
+              <span class="skill-pill">Java</span>
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="skill-group">
+            <h4>📊 Data Analysis &amp; Visualization</h4>
+            <div class="skill-pills">
+              <span class="skill-pill">MySQL</span>
+              <span class="skill-pill">Microsoft Excel</span>
+              <span class="skill-pill">Tableau</span>
+              <span class="skill-pill">Power BI</span>
+              <span class="skill-pill">NumPy</span>
+              <span class="skill-pill">Pandas</span>
+              <span class="skill-pill">Matplotlib</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="skill-group">
+            <h4>🌐 Web Technologies</h4>
+            <div class="skill-pills">
+              <span class="skill-pill">HTML</span>
+              <span class="skill-pill">CSS</span>
+              <span class="skill-pill">React</span>
+              <span class="skill-pill">Angular</span>
+              <span class="skill-pill">Node.js</span>
+              <span class="skill-pill">Express.js</span>
+              <span class="skill-pill">REST APIs</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="skill-group">
+            <h4>🗄️ Databases</h4>
+            <div class="skill-pills">
+              <span class="skill-pill">MySQL</span>
+              <span class="skill-pill">MongoDB</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="skill-group">
+            <h4>🔧 Tools &amp; Platforms</h4>
+            <div class="skill-pills">
+              <span class="skill-pill">Git</span>
+              <span class="skill-pill">GitHub</span>
+              <span class="skill-pill">VS Code</span>
+              <span class="skill-pill">Spring Boot</span>
+              <span class="skill-pill">JWT</span>
+              <span class="skill-pill">WebSocket</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="skill-group">
+            <h4>📐 Concepts</h4>
+            <div class="skill-pills">
+              <span class="skill-pill">Data Cleaning</span>
+              <span class="skill-pill">EDA</span>
+              <span class="skill-pill">Dashboard Design</span>
+              <span class="skill-pill">OOP</span>
+              <span class="skill-pill">RBAC</span>
+              <span class="skill-pill">RESTful APIs</span>
+              <span class="skill-pill">Agile</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Add new skill -->
+      <div style="margin-top:3rem;">
+        <h3 style="color:var(--accent); margin-bottom:1rem;">⚡ Add a New Skill</h3>
+        <div id="add-skill-panel" style="display:flex; gap:0.75rem; flex-wrap:wrap; align-items:center;">
+          <input id="skill-input" type="text" placeholder="e.g. TypeScript" style="padding:0.6rem 1rem; background:rgba(255,255,255,0.05); border:1px solid var(--border); border-radius:8px; color:var(--white); font-size:0.9rem; min-width:200px;"/>
+          <select id="skill-cat" style="padding:0.6rem 1rem; background:rgba(10,10,15,0.9); border:1px solid var(--border); border-radius:8px; color:var(--white); font-size:0.9rem;">
+            <option value="languages">Languages</option>
+            <option value="data">Data Analysis</option>
+            <option value="web">Web Technologies</option>
+            <option value="db">Databases</option>
+            <option value="tools">Tools</option>
+          </select>
+          <button class="btn btn-primary" onclick="addSkill()" style="padding:0.6rem 1.25rem;">Add Skill</button>
+        </div>
+        <div id="extra-skills" style="margin-top:1rem; display:flex; flex-wrap:wrap; gap:0.6rem;"></div>
+      </div>
+
+    </section>
+  </div>
+</div>
+<footer><p>Built by <span>Balapu Vishnu Vardhan</span> &copy; 2025</p></footer>
+<script src="nav.js"></script>
+<script>
+  // Load saved skills
+  var saved = JSON.parse(localStorage.getItem('extra_skills') || '[]');
+  saved.forEach(renderSkill);
+
+  function addSkill() {
+    var val = document.getElementById('skill-input').value.trim();
+    if (!val) return;
+    var cat = document.getElementById('skill-cat').value;
+    var skill = { name: val, cat: cat };
+    saved.push(skill);
+    localStorage.setItem('extra_skills', JSON.stringify(saved));
+    renderSkill(skill);
+    document.getElementById('skill-input').value = '';
+  }
+
+  function renderSkill(s) {
+    var span = document.createElement('span');
+    span.className = 'skill-pill';
+    span.textContent = s.name;
+    document.getElementById('extra-skills').appendChild(span);
+  }
+</script>
+</body>
+</html>

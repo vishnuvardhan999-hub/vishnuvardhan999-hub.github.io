@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Data Analysis | Vishnu Vardhan</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page">
+  <div class="container">
+    <section class="section">
+      <span class="section-tag">Data Analysis</span>
+      <h2 class="section-title">Data Analysis Projects</h2>
+      <div class="section-line"></div>
+      <p style="max-width:600px; margin-bottom:2rem;">
+        End-to-end data projects using SQL, Excel, Tableau, and Power BI — each with full datasets,
+        scripts, and detailed READMEs on GitHub.
+      </p>
+      <a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio" target="_blank" class="btn btn-primary" style="margin-bottom:3rem;">
+        🐙 View Full Portfolio on GitHub
+      </a>
+
+      <div class="grid-2" id="da-grid">
+
+        <!-- Project 1: SQL -->
+        <div class="project-card">
+          <div class="project-img">
+            <img src="images/sql-preview.svg" alt="SQL Project" style="width:100%;height:100%;object-fit:cover;"/>
+          </div>
+          <div class="project-body">
+            <div class="project-number">01 — SQL</div>
+            <h3>Tech Layoffs — Data Cleaning &amp; EDA</h3>
+            <p>Cleaned 1,000+ rows of global tech layoff data. Used ROW_NUMBER() for deduplication, self-joins for NULL fills, and CTEs + DENSE_RANK() for rolling totals and top-5 yearly rankings.</p>
+            <div class="tags">
+              <span class="tag">MySQL</span><span class="tag">CTE</span>
+              <span class="tag">Window Functions</span><span class="tag">EDA</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/sql" target="_blank">🔗 GitHub</a>
+              <a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/sql" target="_blank">📘 README</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Excel -->
+        <div class="project-card">
+          <div class="project-img">
+            <img src="images/excel-preview.svg" alt="Excel Project" style="width:100%;height:100%;object-fit:cover;"/>
+          </div>
+          <div class="project-body">
+            <div class="project-number">02 — Excel</div>
+            <h3>Bike Buyers Sales Dashboard</h3>
+            <p>Analyzed 1,000 customer records to identify bike purchase behavior. Cleaned raw data, engineered Age Bracket column with nested IFs, and built an interactive dashboard with Pivot Tables and slicers.</p>
+            <div class="tags">
+              <span class="tag">Excel</span><span class="tag">Pivot Tables</span>
+              <span class="tag blue">Slicers</span><span class="tag orange">Dashboard</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/excel" target="_blank">🔗 GitHub</a>
+              <a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/excel" target="_blank">📘 README</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Tableau -->
+        <div class="project-card">
+          <div class="project-img">
+            <img src="images/tableau-preview.svg" alt="Tableau Project" style="width:100%;height:100%;object-fit:cover;"/>
+          </div>
+          <div class="project-body">
+            <div class="project-number">03 — Tableau</div>
+            <h3>Seattle AirBnB Market Dashboard</h3>
+            <p>Explored 3,818 listings across 3 data sources. Built an interactive dashboard with a zipcode price map, bedroom pricing chart, weekly revenue trends, and LOD expressions.</p>
+            <div class="tags">
+              <span class="tag">Tableau</span><span class="tag blue">LOD Expressions</span>
+              <span class="tag purple">Map Viz</span><span class="tag">Calculated Fields</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/tableau" target="_blank">🔗 GitHub</a>
+              <a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/tableau" target="_blank">📘 README</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Power BI -->
+        <div class="project-card">
+          <div class="project-img">
+            <img src="images/powerbi-preview.svg" alt="Power BI Project" style="width:100%;height:100%;object-fit:cover;"/>
+          </div>
+          <div class="project-body">
+            <div class="project-number">04 — Power BI</div>
+            <h3>Data Professional Survey Dashboard</h3>
+            <p>Analyzed a 630-respondent survey. Used Power Query to convert salary ranges to midpoints. Revealed salary happiness of 4.27/10 and 59% career switchers into data.</p>
+            <div class="tags">
+              <span class="tag">Power BI</span><span class="tag pink">DAX</span>
+              <span class="tag purple">Power Query</span><span class="tag blue">Gauge Charts</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/power%20bi" target="_blank">🔗 GitHub</a>
+              <a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/power%20bi" target="_blank">📘 README</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end da-grid -->
+
+      <!-- Dynamic Add DA Project -->
+      <div style="margin-top:3rem;">
+        <button class="btn btn-outline" onclick="document.getElementById('da-add').style.display=document.getElementById('da-add').style.display==='none'?'block':'none'">
+          + Add New Data Analysis Project
+        </button>
+        <div id="da-add" style="display:none;">
+          <div id="add-panel" style="margin-top:1.25rem;">
+            <h3>New DA Project</h3>
+            <div class="form-group"><label>Title *</label><input type="text" id="da-title" placeholder="e.g. Customer Churn Analysis"/></div>
+            <div class="form-group"><label>Tool / Tech Stack *</label><input type="text" id="da-tag" placeholder="e.g. Python · Pandas"/></div>
+            <div class="form-group"><label>Description *</label><textarea id="da-desc" rows="3" placeholder="What did you analyse and what techniques did you use?"></textarea></div>
+            <div class="form-group"><label>GitHub Link *</label><input type="url" id="da-link" placeholder="https://github.com/..."/></div>
+            <div class="form-group"><label>Project Number / Label</label><input type="text" id="da-num" placeholder="e.g. 05 — Python"/></div>
+            <button class="btn btn-primary" onclick="addDAProject()">Add Project</button>
+            <div class="success-msg" id="da-success">✅ Project added successfully!</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</div>
+<footer><p>Built by <span>Balapu Vishnu Vardhan</span> &copy; 2025</p></footer>
+<script src="nav.js"></script>
+<script>
+  // Load saved DA projects
+  var saved = JSON.parse(localStorage.getItem('da_projects') || '[]');
+  saved.forEach(renderDA);
+
+  function addDAProject() {
+    var p = {
+      title: document.getElementById('da-title').value.trim(),
+      tag:   document.getElementById('da-tag').value.trim(),
+      desc:  document.getElementById('da-desc').value.trim(),
+      link:  document.getElementById('da-link').value.trim(),
+      num:   document.getElementById('da-num').value.trim() || '0' + (document.querySelectorAll('#da-grid .project-card').length + 1) + ' — Custom',
+    };
+    if (!p.title || !p.tag || !p.desc || !p.link) { alert('Fill all required fields.'); return; }
+    saved.push(p);
+    localStorage.setItem('da_projects', JSON.stringify(saved));
+    renderDA(p);
+    ['da-title','da-tag','da-desc','da-link','da-num'].forEach(function(id){ document.getElementById(id).value = ''; });
+    var s = document.getElementById('da-success');
+    s.style.display = 'block';
+    setTimeout(function(){ s.style.display = 'none'; }, 3000);
+  }
+
+  function renderDA(p) {
+    var card = document.createElement('div');
+    card.className = 'project-card';
+    card.innerHTML =
+      '<div class="project-img" style="background:var(--bg3);display:flex;align-items:center;justify-content:center;min-height:180px;">' +
+        '<span style="font-size:3rem;">📊</span>' +
+      '</div>' +
+      '<div class="project-body">' +
+        '<div class="project-number">' + esc(p.num) + '</div>' +
+        '<h3>' + esc(p.title) + '</h3>' +
+        '<p>' + esc(p.desc) + '</p>' +
+        '<div class="tags"><span class="tag">' + esc(p.tag) + '</span></div>' +
+        '<div class="project-links"><a href="' + esc(p.link) + '" target="_blank">🔗 GitHub</a></div>' +
+      '</div>';
+    document.getElementById('da-grid').appendChild(card);
+  }
+
+  function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+</script>
+</body>
+</html>

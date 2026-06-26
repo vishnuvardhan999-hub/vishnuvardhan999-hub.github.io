@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Projects | Vishnu Vardhan</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page">
+  <div class="container">
+    <section class="section">
+      <span class="section-tag">Development</span>
+      <h2 class="section-title">Software Projects</h2>
+      <div class="section-line"></div>
+      <p style="max-width:600px; margin-bottom:3rem;">Full-stack and web development projects built with modern technologies.</p>
+
+      <div class="grid-2" id="dev-grid">
+
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-img" style="background:linear-gradient(135deg,#0f0f2a,#1a1a3e);display:flex;align-items:center;justify-content:center;min-height:180px;">
+            <span style="font-size:4rem;">🏠</span>
+          </div>
+          <div class="project-body">
+            <div class="project-number">01 — Angular · TypeScript · MySQL</div>
+            <h3>Online House Rental Management System</h3>
+            <p>Engineered a scalable rental platform for property listings, tenant registration and booking operations. Architected JWT-driven access control with distinct roles for Owners, Tenants and Admins.</p>
+            <div class="tags">
+              <span class="tag blue">Angular</span><span class="tag">TypeScript</span>
+              <span class="tag purple">REST APIs</span><span class="tag orange">MySQL</span>
+              <span class="tag">JWT</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/vishnuvardhan999-hub" target="_blank">🔗 GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-img" style="background:linear-gradient(135deg,#0a1628,#0d2137);display:flex;align-items:center;justify-content:center;min-height:180px;">
+            <span style="font-size:4rem;">💬</span>
+          </div>
+          <div class="project-body">
+            <div class="project-number">02 — MERN Stack · WebSocket</div>
+            <h3>Real-Time Chat Application</h3>
+            <p>Crafted a high-performance messaging platform supporting secure communication among multiple concurrent users. Leveraged WebSocket for real-time delivery and JWT-based auth for session security.</p>
+            <div class="tags">
+              <span class="tag">MongoDB</span><span class="tag blue">Express.js</span>
+              <span class="tag">React</span><span class="tag orange">Node.js</span>
+              <span class="tag purple">WebSocket</span><span class="tag">JWT</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/vishnuvardhan999-hub" target="_blank">🔗 GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-img" style="background:linear-gradient(135deg,#1a0f2e,#2a1a3e);display:flex;align-items:center;justify-content:center;min-height:180px;">
+            <span style="font-size:4rem;">📦</span>
+          </div>
+          <div class="project-body">
+            <div class="project-number">03 — Java Full Stack · Spring Boot</div>
+            <h3>Smart Procurement &amp; Vendor Management</h3>
+            <p>Spearheaded procurement automation for requisitions, approvals and purchase orders. Modeled role-based workflows for employees, vendors and finance teams with Spring Boot backend services.</p>
+            <div class="tags">
+              <span class="tag blue">Java</span><span class="tag purple">Spring Boot</span>
+              <span class="tag orange">MySQL</span><span class="tag">REST APIs</span>
+              <span class="tag pink">RBAC</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/vishnuvardhan999-hub" target="_blank">🔗 GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card">
+          <div class="project-img" style="background:linear-gradient(135deg,#0f1a0f,#1a2e1a);display:flex;align-items:center;justify-content:center;min-height:180px;">
+            <span style="font-size:4rem;">💸</span>
+          </div>
+          <div class="project-body">
+            <div class="project-number">04 — HTML · CSS · JavaScript</div>
+            <h3>Expense Tracker Web App</h3>
+            <p>Developed a budget management app supporting expense logging across 10 spending categories. Integrated 3 interactive chart types (bar, pie, trend line) to visualize spending at a glance.</p>
+            <div class="tags">
+              <span class="tag orange">HTML</span><span class="tag blue">CSS</span>
+              <span class="tag">JavaScript</span><span class="tag pink">Charts</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/vishnuvardhan999-hub" target="_blank">🔗 GitHub</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Dynamic Add Dev Project -->
+      <div style="margin-top:3rem;">
+        <button class="btn btn-outline" onclick="document.getElementById('dev-add').style.display=document.getElementById('dev-add').style.display==='none'?'block':'none'">
+          + Add New Dev Project
+        </button>
+        <div id="dev-add" style="display:none;">
+          <div id="add-panel" style="margin-top:1.25rem;">
+            <h3>New Development Project</h3>
+            <div class="form-group"><label>Title *</label><input type="text" id="dev-title" placeholder="e.g. E-Commerce Platform"/></div>
+            <div class="form-group"><label>Tech Stack *</label><input type="text" id="dev-tag" placeholder="e.g. React · Node.js · MongoDB"/></div>
+            <div class="form-group"><label>Description *</label><textarea id="dev-desc" rows="3" placeholder="What did you build and what are the key features?"></textarea></div>
+            <div class="form-group"><label>GitHub Link *</label><input type="url" id="dev-link" placeholder="https://github.com/..."/></div>
+            <div class="form-group"><label>Emoji Icon</label><input type="text" id="dev-emoji" placeholder="e.g. 🚀" maxlength="4"/></div>
+            <button class="btn btn-primary" onclick="addDevProject()">Add Project</button>
+            <div class="success-msg" id="dev-success">✅ Project added!</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</div>
+<footer><p>Built by <span>Balapu Vishnu Vardhan</span> &copy; 2025</p></footer>
+<script src="nav.js"></script>
+<script>
+  var saved = JSON.parse(localStorage.getItem('dev_projects') || '[]');
+  saved.forEach(renderDev);
+
+  function addDevProject() {
+    var p = {
+      title: document.getElementById('dev-title').value.trim(),
+      tag:   document.getElementById('dev-tag').value.trim(),
+      desc:  document.getElementById('dev-desc').value.trim(),
+      link:  document.getElementById('dev-link').value.trim(),
+      emoji: document.getElementById('dev-emoji').value.trim() || '💻',
+      num:   '0' + (document.querySelectorAll('#dev-grid .project-card').length + 1) + ' — Custom',
+    };
+    if (!p.title || !p.tag || !p.desc || !p.link) { alert('Fill all required fields.'); return; }
+    saved.push(p);
+    localStorage.setItem('dev_projects', JSON.stringify(saved));
+    renderDev(p);
+    ['dev-title','dev-tag','dev-desc','dev-link','dev-emoji'].forEach(function(id){ document.getElementById(id).value=''; });
+    var s = document.getElementById('dev-success');
+    s.style.display = 'block';
+    setTimeout(function(){ s.style.display = 'none'; }, 3000);
+  }
+
+  function renderDev(p) {
+    var card = document.createElement('div');
+    card.className = 'project-card';
+    card.innerHTML =
+      '<div class="project-img" style="background:linear-gradient(135deg,var(--bg2),var(--bg3));display:flex;align-items:center;justify-content:center;min-height:180px;">' +
+        '<span style="font-size:4rem;">' + esc(p.emoji) + '</span>' +
+      '</div>' +
+      '<div class="project-body">' +
+        '<div class="project-number">' + esc(p.num) + '</div>' +
+        '<h3>' + esc(p.title) + '</h3>' +
+        '<p>' + esc(p.desc) + '</p>' +
+        '<div class="tags"><span class="tag">' + esc(p.tag) + '</span></div>' +
+        '<div class="project-links"><a href="' + esc(p.link) + '" target="_blank">🔗 GitHub</a></div>' +
+      '</div>';
+    document.getElementById('dev-grid').appendChild(card);
+  }
+
+  function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+</script>
+</body>
+</html>

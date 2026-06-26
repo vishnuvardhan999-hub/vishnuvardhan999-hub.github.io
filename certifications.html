@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Certifications | Vishnu Vardhan</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page">
+  <div class="container">
+    <section class="section">
+      <span class="section-tag">Achievements</span>
+      <h2 class="section-title">Licenses &amp; Certifications</h2>
+      <div class="section-line"></div>
+
+      <div class="grid-2" id="cert-grid">
+
+        <div class="cert-card card">
+          <div class="cert-icon">🏆</div>
+          <div>
+            <h4>Full Stack Development</h4>
+            <p>Matrimony &nbsp;·&nbsp; 2025</p>
+            <div class="tags" style="margin-top:0.5rem;">
+              <span class="tag">Full Stack</span><span class="tag blue">Web Dev</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card card">
+          <div class="cert-icon">🎓</div>
+          <div>
+            <h4>Java Full Stack</h4>
+            <p>Wipro Talent Acquisition &nbsp;·&nbsp; 2025</p>
+            <div class="tags" style="margin-top:0.5rem;">
+              <span class="tag blue">Java</span><span class="tag purple">Spring Boot</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card card">
+          <div class="cert-icon">📜</div>
+          <div>
+            <h4>Frontend Development Certification</h4>
+            <p>Coursera &nbsp;·&nbsp; 2025</p>
+            <div class="tags" style="margin-top:0.5rem;">
+              <span class="tag orange">HTML/CSS</span><span class="tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card card">
+          <div class="cert-icon">☕</div>
+          <div>
+            <h4>Java Programming Fundamentals</h4>
+            <p>Infosys SpringBoard &nbsp;·&nbsp; 2024</p>
+            <div class="tags" style="margin-top:0.5rem;">
+              <span class="tag blue">Java</span><span class="tag">OOP</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Add Certification -->
+      <div style="margin-top:3rem;">
+        <button class="btn btn-outline" onclick="document.getElementById('cert-add').style.display=document.getElementById('cert-add').style.display==='none'?'block':'none'">
+          + Add New Certification
+        </button>
+        <div id="cert-add" style="display:none;">
+          <div id="add-panel" style="margin-top:1.25rem;">
+            <h3>New Certification</h3>
+            <div class="form-group"><label>Certification Title *</label><input type="text" id="cert-title" placeholder="e.g. AWS Cloud Practitioner"/></div>
+            <div class="form-group"><label>Issuer &amp; Year *</label><input type="text" id="cert-issuer" placeholder="e.g. Amazon Web Services · 2025"/></div>
+            <div class="form-group"><label>Skills / Tags</label><input type="text" id="cert-tags" placeholder="e.g. Cloud, AWS (comma separated)"/></div>
+            <div class="form-group"><label>Icon Emoji</label><input type="text" id="cert-icon" placeholder="🏆" maxlength="4"/></div>
+            <button class="btn btn-primary" onclick="addCert()">Add Certification</button>
+            <div class="success-msg" id="cert-success">✅ Certification added!</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</div>
+<footer><p>Built by <span>Balapu Vishnu Vardhan</span> &copy; 2025</p></footer>
+<script src="nav.js"></script>
+<script>
+  var saved = JSON.parse(localStorage.getItem('extra_certs') || '[]');
+  saved.forEach(renderCert);
+
+  function addCert() {
+    var c = {
+      title:  document.getElementById('cert-title').value.trim(),
+      issuer: document.getElementById('cert-issuer').value.trim(),
+      tags:   document.getElementById('cert-tags').value.trim(),
+      icon:   document.getElementById('cert-icon').value.trim() || '🏆',
+    };
+    if (!c.title || !c.issuer) { alert('Fill title and issuer.'); return; }
+    saved.push(c);
+    localStorage.setItem('extra_certs', JSON.stringify(saved));
+    renderCert(c);
+    ['cert-title','cert-issuer','cert-tags','cert-icon'].forEach(function(id){ document.getElementById(id).value=''; });
+    var s = document.getElementById('cert-success');
+    s.style.display = 'block';
+    setTimeout(function(){ s.style.display='none'; }, 3000);
+  }
+
+  function renderCert(c) {
+    var tagHtml = (c.tags || '').split(',').filter(Boolean).map(function(t){
+      return '<span class="tag">' + esc(t.trim()) + '</span>';
+    }).join('');
+    var el = document.createElement('div');
+    el.className = 'cert-card card';
+    el.innerHTML =
+      '<div class="cert-icon">' + esc(c.icon) + '</div>' +
+      '<div><h4>' + esc(c.title) + '</h4><p>' + esc(c.issuer) + '</p>' +
+      (tagHtml ? '<div class="tags" style="margin-top:0.5rem;">' + tagHtml + '</div>' : '') + '</div>';
+    document.getElementById('cert-grid').appendChild(el);
+  }
+
+  function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+</script>
+</body>
+</html>
